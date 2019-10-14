@@ -56,7 +56,7 @@
     FILE* pgmimg; 
 
     //Creating a file ready to be written with a name of "myimg.pgm"
-    pgmimg = fopen("myimg.pgm", "wb"); 
+    pgmimg = fopen("myimg.ppm", "wb"); 
   
     // Writing Magic Number to the File 
     fprintf(pgmimg, "%s\n", MAGIC_NUMBER);  
