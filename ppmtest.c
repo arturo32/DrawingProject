@@ -53,19 +53,23 @@
     }
     
 
-    FILE* pgmimg; 
+    FILE* ppmimg; 
 
-    //Creating a file ready to be written with a name of "myimg.pgm"
-    pgmimg = fopen("myimg.ppm", "wb"); 
+    //Creating a file ready to be written with a name of "myimg.ppm"
+    ppmimg = fopen("myimg.ppm", "wb"); 
+    if(ppmimg == NULL){
+       printf("ERORRR\n");
+       return 1;
+    }
   
     // Writing Magic Number to the File 
-    fprintf(pgmimg, "%s\n", MAGIC_NUMBER);  
+    fprintf(ppmimg, "%s\n", MAGIC_NUMBER);  
   
     // Writing the size of the image 
-    fprintf(pgmimg, "%d %d\n", IMAGE_SIZE, IMAGE_SIZE);  
+    fprintf(ppmimg, "%d %d\n", IMAGE_SIZE, IMAGE_SIZE);  
   
     // Writing the maximum gray value 
-    fprintf(pgmimg, "%d\n", MAX_VALUE);
+    fprintf(ppmimg, "%d\n", MAX_VALUE);
 
     int count = 0; 
     for (i = 0; i < IMAGE_SIZE; i++) { 
@@ -74,12 +78,12 @@
  	           temp = image[i][j][k]; 
   
             	// Writing the colour values in the 3D array to the file 
-            	fprintf(pgmimg, "%d ", temp); 
+            	fprintf(ppmimg, "%d ", temp); 
         	}
             free(image[i][j]);	
         } 
         free(image[i]);
-        fprintf(pgmimg, "\n"); 
+        fprintf(ppmimg, "\n"); 
     }
 
 
@@ -87,7 +91,7 @@
     free(image);
 
 
-    fclose(pgmimg);
+    fclose(ppmimg);
 
 
 
