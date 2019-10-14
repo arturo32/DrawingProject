@@ -1,2 +1,2 @@
-# PROJETO_ITP_A_A
+# PROJETO_ITP_AA
 Desenho gráfico com imagens PPM
