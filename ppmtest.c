@@ -8,7 +8,9 @@
    int main(){
 
     int i, j, k, temp = 0;
-  
+    
+    //42
+    
     // Suppose the 3D Array to be converted to Image is as given below 
     //É MELHOR CRIAR UMA STRUCT PARA ARMAZENAR CADA PIXEL (3 VALORES)!
 
