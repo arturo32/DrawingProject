@@ -16,20 +16,19 @@
     //Declarando uma matriz do tipo Pixel para armazenar imagens ppm
     Pixel **image;
     
-    image = (Pixel**)(malloc(sizeof(Pixel*) * size_x));
+    image = (Pixel**)(malloc(size_x * sizeof(Pixel*)));
     if(image == NULL){
     	printf("Erro na inicialização de image.\n");
     	return 1;
     }
 
     for(i = 0; i < size_x; i++){
-    	image[i] = (Pixel*)(malloc(sizeof(Pixel) * size_y));
+    	image[i] = (Pixel*)(malloc(size_y * sizeof(Pixel)));
     	if(image[i] == NULL){
     		printf("Erro na inicialização de image[%d].\n", i);
     		return 1;
     	}
    	}
-
     //Forming a yellow rectangle inside a black square
     for (i = 0; i < size_x; ++i){
       for (j = 0; j < size_y; ++j){
@@ -39,8 +38,7 @@
           p.G = 255;
           p.B = 0;
         }
-        else
-        {
+        else{
           p.R = 0;
           p.G = 0;
           p.B = 0;
