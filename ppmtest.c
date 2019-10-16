@@ -1,62 +1,51 @@
    #include <stdio.h>
    #include <stdlib.h>
-  #include "tipos_dados.h"
+   #include "tipos.h"
   
    #define MAGIC_NUMBER "P3" //PPM
    #define MAX_VALUE 255
-   #define IMAGE_SIZE 1000
 
    int main(){
 
-    int i, j, k, temp = 0;
-    
-    
-    // Suppose the 3D Array to be converted to Image is as given below 
-    //É MELHOR CRIAR UMA STRUCT PARA ARMAZENAR CADA PIXEL (3 VALORES)!
+    int i, j, k, size_x, size_y, temp = 0;
 
+    //Isso abaixo será parte de uma função dentro de uma biblioteca
+    printf("Quantos pixels na vertical e horizontal você deseja na sua imagem? (separe os dois valores por espaço)\n");
+    scanf("%d %d" , &size_x, &size_y);
+
+    //Declarando uma matriz do tipo Pixel para armazenar imagens ppm
     Pixel **image;
     
-    image = (Pixel **)(malloc(sizeof(Pixel*)*IMAGE_SIZE));
+    image = (Pixel**)(malloc(sizeof(Pixel*) * size_x));
     if(image == NULL){
-    	printf("EEEROO\n");
+    	printf("Erro na inicialização de image.\n");
     	return 1;
     }
 
-    for(i = 0; i < IMAGE_SIZE; i++){
-    	image[i] = (Pixel*)(malloc(sizeof(Pixel)*IMAGE_SIZE));
+    for(i = 0; i < size_x; i++){
+    	image[i] = (Pixel*)(malloc(sizeof(Pixel) * size_y));
     	if(image[i] == NULL){
-    		printf("EERROR\n");
+    		printf("Erro na inicialização de image[%d].\n", i);
     		return 1;
     	}
    	}
 
-    
-
-    // Forming a white square inside a black square
-    // Play here to form your own images!
-    for (i = 0; i < IMAGE_SIZE; ++i){
-      for (j = 0; j < IMAGE_SIZE; ++j){
-        Pixel a;
-        if(i>250 && j >250 && i<750 && j <750){
-          a.r = 255;
-          a.g = 255;
-          a.b = 0;
+    //Forming a yellow rectangle inside a black square
+    for (i = 0; i < size_x; ++i){
+      for (j = 0; j < size_y; ++j){
+        Pixel p;
+        if(i > (size_x/4) && j > (size_y/4) && i < (size_x * 3/4) && j < (size_y * 3/4)){
+          p.R = 255;
+          p.G = 255;
+          p.B = 0;
         }
         else
         {
-          a.r = 0;
-          a.g = 0;
-          a.b = 0;
+          p.R = 0;
+          p.G = 0;
+          p.B = 0;
         }
-        image[i][j] = a;
-      	/*for(k = 0; k < 3; k++){
-        	if(i>250 && j >250 && i<750 && j <750 && k < 2){
-          		image[i][j][k] = 255;
-        	}
-        	else{
-         	 	image[i][j][k] = 0;
-      		}
-        }*/
+        image[i][j] = p;
       }
     }
     
@@ -74,30 +63,24 @@
     fprintf(ppmimg, "%s\n", MAGIC_NUMBER);  
   
     // Writing the size of the image 
-    fprintf(ppmimg, "%d %d\n", IMAGE_SIZE, IMAGE_SIZE);  
+    fprintf(ppmimg, "%d %d\n", size_x, size_y);  
   
-    // Writing the maximum gray value 
+    // Writing the maximum RGB value 
     fprintf(ppmimg, "%d\n", MAX_VALUE);
 
-    int count = 0; 
-    for (i = 0; i < IMAGE_SIZE; i++) { 
-        for (j = 0; j < IMAGE_SIZE; j++) {
+    for (i = 0; i < size_x; i++) { 
+        for (j = 0; j < size_y; j++) {
 
           // Writing the colour values in the 3D array to the file 
-          fprintf(ppmimg, "%d %d %d ", image[i][j].r, image[i][j].g, image[i][j].b); 
+          fprintf(ppmimg, "%d %d %d ", image[i][j].R, image[i][j].G, image[i][j].B); 
         } 
         free(image[i]);
         fprintf(ppmimg, "\n"); 
     }
-
-
-
+    
     free(image);
-
-
+    
     fclose(ppmimg);
-
-
 
     return 0; 
 } 
