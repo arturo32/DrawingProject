@@ -1,6 +1,9 @@
    #include <stdio.h>
    #include <stdlib.h>
    #include "tipos.h"
+   #include "shapes.h"
+   #include "general.h"
+   #include "painting.h"
   
    #define MAGIC_NUMBER "P3" //PPM
    #define MAX_VALUE 255
