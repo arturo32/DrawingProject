@@ -1,7 +1,7 @@
 all: main
 
 main: painting shapes general ppmtest.c
-	gcc ppmtest.c painting.o shapes.o general.o -o exec
+	gcc ppmtest.c painting.o shapes.o general.o -o ppm
 
 painting: painting.c
 	gcc -c painting.c
