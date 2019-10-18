@@ -8,9 +8,18 @@
    #define MAGIC_NUMBER "P3" //PPM
    #define MAX_VALUE 255
 
-   int main(){
-
+   int main(int argc, char const *argv[]){
+ 
     int i, j, k, size_x, size_y, temp = 0;
+
+    
+
+    //ANALISAR DEPOIS
+    printf("parametros: %d\n", argc);
+    for(i=0;i<argc;i++)
+      printf("%s\n", argv[i]);
+
+    
 
     //Isso abaixo será parte de uma função dentro de uma biblioteca
     printf("Quantos pixels na vertical e horizontal você deseja na sua imagem? (separe os dois valores por espaço)\n");
