@@ -1,7 +1,7 @@
 all: main
 
-main: painting shapes general MAIN.c
-	gcc MAIN.c painting.o shapes.o general.o -o ppm
+main: painting shapes IO types MAIN.c
+	gcc MAIN.c painting.o shapes.o IO.o types.o -o ppm
 
 painting: painting.c
 	gcc -c painting.c
@@ -9,8 +9,11 @@ painting: painting.c
 shapes: shapes.c
 	gcc -c shapes.c
 
-general: general.c
+IO: general.c
 	gcc -c general.c
+	
+types: types.c
+	gcc -c types.c
 
 clean:
 	rm -f *.o
