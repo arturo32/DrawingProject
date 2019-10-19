@@ -3,7 +3,7 @@
 
 #include "types.h"
 
-Pixel** newImage(int x, int y);
+Image newImage(int x, int y);
 //void menu();???
 //color();
 //save();
