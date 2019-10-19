@@ -8,9 +8,9 @@ typedef struct{
 }Pixel;
 
 typedef struct{
-	Pixel **image;
-	int x;
-	int y;
+	Pixel **pixels;
+	int height;
+	int width;
 }Image;
 
 #endif
