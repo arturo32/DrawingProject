@@ -24,7 +24,8 @@
     //Isso abaixo será parte de uma função dentro de uma biblioteca
     scanf("%d %d" , &size_x, &size_y);
     
-    Image picture = newImage(size_x, size_y);      
+    Image picture = newImage(size_x, size_y);  
+   
 
     FILE* ppmimg; 
 
@@ -39,7 +40,7 @@
     fprintf(ppmimg, "%s\n", MAGIC_NUMBER);  
   
     // Writing the size of the image 
-    fprintf(ppmimg, "%d %d\n", size_x, size_y);  
+    fprintf(ppmimg, "%d %d\n", size_y, size_x); //width and then height  
   
     // Writing the maximum RGB value 
     fprintf(ppmimg, "%d\n", MAX_VALUE);
