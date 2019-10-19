@@ -24,17 +24,12 @@
     //Isso abaixo será parte de uma função dentro de uma biblioteca
     scanf("%d %d" , &size_x, &size_y);
     
-    Image picture;  
-    picture.image = newImage(size_x, size_y);
-    if(picture.image == NULL){
-    	return 1;
-    }
-    
+    Image picture = newImage(size_x, size_y);      
 
     FILE* ppmimg; 
 
     //Creating a file ready to be written with a name of "myimg.ppm"
-    ppmimg = fopen("myimg.ppm", "wb"); 
+    ppmimg = fopen("myimg.ppm", "w"); 
     if(ppmimg == NULL){
        printf("ERORRR\n");
        return 1;
@@ -51,15 +46,14 @@
 
     for (i = 0; i < size_x; i++) { 
         for (j = 0; j < size_y; j++) {
-
           // Writing the colour values in the 3D array to the file 
-          fprintf(ppmimg, "%d %d %d ", picture.image[i][j].R, picture.image[i][j].G, picture.image[i][j].B); 
+          fprintf(ppmimg, "%d %d %d ", picture.pixels[i][j].R, picture.pixels[i][j].G, picture.pixels[i][j].B); 
         } 
-        free(picture.image[i]);
+        free(picture.pixels[i]);
         fprintf(ppmimg, "\n"); 
     }
     
-    free(picture.image);
+    free(picture.pixels);
     
     fclose(ppmimg);
 
