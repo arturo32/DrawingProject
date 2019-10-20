@@ -3,9 +3,12 @@
 
 #include "types.h"
 
+
 Image newImage(int x, int y);
+void save(Image picture, char *imageName);
+
 //void menu();???
 //color();
-//save();
+
 
 #endif

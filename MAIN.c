@@ -1,62 +1,48 @@
-   #include <stdio.h>
-   #include <stdlib.h>
-   #include "types.h"
-   #include "shapes.h"
-   #include "IO.h"
-   #include "painting.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include "types.h"
+#include "shapes.h"
+#include "IO.h"
+#include "painting.h"
+#include <string.h>
   
-   #define MAGIC_NUMBER "P3" //PPM
-   #define MAX_VALUE 255
-
-   int main(int argc, char const *argv[]){
+int main(int argc, char const *argv[]){
  
-    int i, j, k, size_x, size_y, temp = 0;
+  int count=0, height, weight;
+  char const *fileNameTXT; //Nome do arquivo txt que será aberto
+  char function[10], imageName[10]; //Rever o tamanho das variaveis
+  FILE *fileTXT; //Ponteiro para o arquivo txt
+  Image picture; //Imagem que será criada e manipulada
+  Pixel pixel; //Pixel que será passado como parâmetro para a função clear
 
-    
+  fileNameTXT = argv[1];
 
-    //ANALISAR DEPOIS
-    printf("parametros: %d\n", argc);
-    for(i=0;i<argc;i++)
-      printf("%s\n", argv[i]);
-
-    
-
-    //Isso abaixo será parte de uma função dentro de uma biblioteca
-    scanf("%d %d" , &size_x, &size_y);
-    
-    Image picture = newImage(size_x, size_y);  
-   
-
-    FILE* ppmimg; 
-
-    //Creating a file ready to be written with a name of "myimg.ppm"
-    ppmimg = fopen("myimg.ppm", "w"); 
-    if(ppmimg == NULL){
-       printf("ERORRR\n");
-       return 1;
-    }
+  fileTXT = fopen(fileNameTXT, "r");
+  if(fileTXT == NULL){
+    printf("ERORRR\n");
+    exit(EXIT_FAILURE);
+  }
   
-    // Writing Magic Number to the File 
-    fprintf(ppmimg, "%s\n", MAGIC_NUMBER);  
-  
-    // Writing the size of the image 
-    fprintf(ppmimg, "%d %d\n", size_y, size_x); //width and then height  
-  
-    // Writing the maximum RGB value 
-    fprintf(ppmimg, "%d\n", MAX_VALUE);
-
-    for (i = 0; i < size_x; i++) { 
-        for (j = 0; j < size_y; j++) {
-          // Writing the colour values in the 3D array to the file 
-          fprintf(ppmimg, "%d %d %d ", picture.pixels[i][j].R, picture.pixels[i][j].G, picture.pixels[i][j].B); 
-        } 
-        free(picture.pixels[i]);
-        fprintf(ppmimg, "\n"); 
-    }
+  //Testar esse while usando o fgets
+  /*
+  while (cont < 3){
     
-    free(picture.pixels);
-    
-    fclose(ppmimg);
+  } */
+  
+  
+  //A leitura do arquivo está errada
+  //Pesquisando sobre funções de leitura
+  fscanf(fileTXT,"%s %d %d", function, &weight, &height);
+  picture = newImage(weight, height); //Creating the image
 
-    return 0; 
+  fscanf(fileTXT, "%s %c %c %c", function, &pixel.R, &pixel.G, &pixel.B);
+  picture = clear(picture, pixel); //Clear the image and set all pixels with a specific pixel
+
+  fscanf(fileTXT, "%s %s", function, imageName); //Ler a função save e o nome da imagem ppm
+  save(picture, imageName); //Saving the image
+
+    
+  fclose(fileTXT);
+
+  return 0; 
 } 
