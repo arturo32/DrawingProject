@@ -4,7 +4,7 @@ Grafic design with PPM images.
 Para compilar o arquivo, digite:
 > make
 
->./ppm [nome_do_arquivo.txt]
+>./ppm nome_do_arquivo.txt
 
 
 The project is been produced by:
