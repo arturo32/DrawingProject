@@ -8,21 +8,25 @@
 #define MAX_VALUE 255
 
 
-Image newImage(int heigth, int weight){
+Image newImage(FILE *fileTXT){
 	
-	int i, j;	
-	Image picture;
-	picture.height = heigth;
-	picture.width = weight;
+	int i, j, height, width;
+    Pixel pixel; //Pixel que será passado como parâmetro para a função clear
+    Image picture; //Imagem que será criada e manipulada
+
+    fscanf(fileTXT," %d %d\n",  &width, &height);
+
+	picture.height = height;
+	picture.width = width;
     
-    picture.pixels = (Pixel**)(malloc(heigth * sizeof(Pixel*)));
+    picture.pixels = (Pixel**)(malloc(height * sizeof(Pixel*)));
     if(picture.pixels == NULL){
     	printf("Error in creating matrix\n");
     	exit(EXIT_FAILURE);
     }
 
-    for(i = 0; i < heigth; i++){
-    	picture.pixels[i] = (Pixel*)(malloc(weight * sizeof(Pixel)));
+    for(i = 0; i < height; i++){
+    	picture.pixels[i] = (Pixel*)(malloc(width * sizeof(Pixel)));
     	if(picture.pixels[i] == NULL){
 			printf("Error in creating matrix\n");
             //stops the entire program
@@ -35,9 +39,14 @@ Image newImage(int heigth, int weight){
 }
 
 
-void save(Image picture, char *imageName){ 
+void save(Image picture, FILE *fileTXT){ 
+
     FILE* ppmimg; 
     int i, j;
+    char imageName[10]; //Rever tamanho da variavel
+    
+    fscanf(fileTXT, " %s\n", imageName); //Ler a função save e o nome da imagem ppm
+
     //Creating a file ready to be written with a name of "myimg.ppm"
     ppmimg = fopen(imageName, "w"); 
     if(ppmimg == NULL){

@@ -2,10 +2,10 @@
 #define IO_H
 
 #include "types.h"
+#include <stdio.h>
 
-
-Image newImage(int x, int y);
-void save(Image picture, char *imageName);
+Image newImage(FILE *fileTXT);
+void save(Image picture, FILE *fileTXT);
 
 //void menu();???
 //color();

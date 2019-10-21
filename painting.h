@@ -2,8 +2,9 @@
 #define PAINTING_H
 
 #include "types.h"
+#include <stdio.h>
 //fill();
-Image clear(Image picture, Pixel pixel);
+Image clear(Image picture, FILE *fileTXT);
 
 
 #endif
