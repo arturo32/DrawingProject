@@ -6,9 +6,7 @@
 
 Image newImage(FILE *fileTXT);
 void save(Image picture, FILE *fileTXT);
-
-//void menu();???
-//color();
+Pixel color(FILE *fileTXT, Pixel current_color);
 
 
 #endif

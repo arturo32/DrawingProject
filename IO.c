@@ -78,7 +78,9 @@ void save(Image picture, FILE *fileTXT){
 }
 
 
+Pixel color(FILE *fileTXT, Pixel current_color){
 
-//menu(){}?
-//color(){}
-//save(){}
+    fscanf(fileTXT, " %hhu %hhu %hhu\n", &current_color.R, &current_color.G, &current_color.B);
+
+    return current_color;
+}

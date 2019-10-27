@@ -36,6 +36,9 @@ int main(int argc, char const *argv[]){
     else if (strcmp(functionName, "clear") == 0){
       picture = clear(picture, fileTXT, &current_color);
     }
+    else if (strcmp(functionName, "color") == 0){
+      current_color = color(fileTXT, current_color);
+    }
     else if (strcmp(functionName, "line") == 0){
       picture = line(picture, fileTXT, &current_color);
     }
