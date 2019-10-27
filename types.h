@@ -13,6 +13,10 @@ typedef struct{
 	int width;
 }Image;
 
+typedef struct{
+    int x0, y0;
+    int x1, y1;
+}Line;
 
 
 #endif

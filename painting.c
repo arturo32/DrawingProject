@@ -2,7 +2,7 @@
 #include "types.h"
 #include <stdio.h>
 
-Image clear(Image picture, FILE *fileTXT){
+Image clear(Image picture, FILE *fileTXT, Pixel *current_color){
     int i, j;
     Pixel pixel;
 
@@ -13,6 +13,8 @@ Image clear(Image picture, FILE *fileTXT){
 	        picture.pixels[i][j] = pixel;
         }
     }
+
+    *current_color = pixel;
     return picture;
 }
 

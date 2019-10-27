@@ -1,3 +1,4 @@
 image 1000 1000
 clear 255 255 255
+line 0 400 600 200
 save test.ppm
