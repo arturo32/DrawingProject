@@ -4,9 +4,9 @@
 #include "types.h"
 #include <stdio.h>
 
-//rect();
 //circle();
-//polygon();
+Image polygon(Image picture, FILE *fileTXT, Pixel *current_color);
 Image line(Image picture, FILE *fileTXT, Pixel *current_color);
+Image line_after_read(Image picture, Line line, Pixel *current_color);
 
 #endif

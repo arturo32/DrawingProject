@@ -2,4 +2,5 @@ image 1000 1000
 clear 255 255 255
 color 0 0 0
 line 0 400 600 200
+polygon 3 0 400 300 200 600 400
 save test.ppm

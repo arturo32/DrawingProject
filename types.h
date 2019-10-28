@@ -18,5 +18,9 @@ typedef struct{
     int x1, y1;
 }Line;
 
+typedef struct{
+    int qtdLinhas;
+    int x0, y0;
+}Polygon;
 
 #endif
