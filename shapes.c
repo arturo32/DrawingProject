@@ -6,12 +6,19 @@
 //rect(){}
 //circle(){}
 //polygon(){}
-Image line(Image picture, FILE *fileTXT, Pixel *current_color){
-    Line line;
-    fscanf(fileTXT, " %d %d %d %d\n", &line.x0, &line.y0, &line.x1, &line.y1);
+Image line(Image picture, FILE* fileTXT, Pixel* current_color){
 
     int dx, dy, sx, sy, err, e2;
+    Line line;
+    fscanf(fileTXT, "%d %d %d %d\n", &line.x0, &line.y0, &line.x1, &line.y1);
     
+    /*Calculating the differences between the x's and y's
+    (they will tell the slope of the line) and checking if the line
+    is going from the left to the right (add 1 to x0) or from the right to
+    the left (add -1 to x0) and if it is going from the top to the bottom
+    (add 1 to y0) or from the bottom to the top (add -1 to y0). All of this
+    is to find the octant that the line is placed to follow the Bresenham's
+    Algorithm*/
     dx = abs(line.x1 - line.x0);
     if(line.x0 < line.x1){
         sx = 1;
@@ -28,18 +35,19 @@ Image line(Image picture, FILE *fileTXT, Pixel *current_color){
         sy = -1;
     }
 
-    //Essa parte do "err" e do "e2" eu n entendi ainda
-    if(dx > dy){   //Ou seja, menor que 1
+    //If the slope is less than 1
+    if(dx > dy){   
         err = dx/2;
     }
+    //If the slope is greater than 1
     else{
         err = -dy/2;
     }
 
-
     do{
-    printf("x0: %d y0: %d\n", line.x0, line.y0);
-    picture.pixels[line.x0][line.y0] = *current_color;
+    /*Setting each pixel to the current color. y and x are switched because
+    in matrixes the rows comes before the collumns*/
+    picture.pixels[line.y0][line.x0] = *current_color;
 
     e2 = err;
 
@@ -120,7 +128,7 @@ Image line_after_read(Image picture, Line line, Pixel *current_color){
     }
 
     do{
-    picture.pixels[line.x0][line.y0] = *current_color;
+    picture.pixels[line.y0][line.x0] = *current_color;
 
     e2 = err;
 
