@@ -5,13 +5,12 @@
 
 //rect(){}
 //circle(){}
-//polygon(){}
-Image line(Image picture, FILE* fileTXT, Pixel* current_color){
+
+//Line function to be used directly from the polygon function
+Image line2(Image picture, Pixel* currentColor, int x0, int y0, int x1, int y1){
 
     int dx, dy, sx, sy, err, e2;
-    Line line;
-    fscanf(fileTXT, "%d %d %d %d\n", &line.x0, &line.y0, &line.x1, &line.y1);
-    
+  
     /*Calculating the differences between the x's and y's
     (they will tell the slope of the line) and checking if the line
     is going from the left to the right (add 1 to x0) or from the right to
@@ -19,16 +18,16 @@ Image line(Image picture, FILE* fileTXT, Pixel* current_color){
     (add 1 to y0) or from the bottom to the top (add -1 to y0). All of this
     is to find the octant that the line is placed to follow the Bresenham's
     Algorithm*/
-    dx = abs(line.x1 - line.x0);
-    if(line.x0 < line.x1){
+    dx = abs(x1 - x0);
+    if(x0 < x1){
         sx = 1;
     }
     else{
         sx = -1;
     }
 
-    dy = abs(line.y1 - line.y0);
-    if (line.y0 < line.y1){
+    dy = abs(y1 - y0);
+    if (y0 < y1){
         sy = 1;
     }
     else{
@@ -45,103 +44,60 @@ Image line(Image picture, FILE* fileTXT, Pixel* current_color){
     }
 
     do{
+
     /*Setting each pixel to the current color. y and x are switched because
     in matrixes the rows comes before the collumns*/
-    picture.pixels[line.y0][line.x0] = *current_color;
+    picture.pixels[y0][x0] = *currentColor;
 
     e2 = err;
 
     if(e2 > -dx){
       err -= dy;
-      line.x0 += sx;
+      x0 += sx;
     }
     if(e2 < dy){
       err += dx; 
-      line.y0 += sy;
+      y0 += sy;
     }
 
-    }while(line.x0 != line.x1 || line.y0 != line.y1);
+    }while(x0 != x1 || y0 != y1);
 
     return picture;
 }
 
-Image polygon(Image picture, FILE *fileTXT, Pixel *current_color){
-    
-    Polygon poly;
-    Line line;
-    int x, y, cont = 0;
+//Line function to be used in the MAIN file 
+Image line(Image picture, Pixel* currentColor, FILE* fileTXT){
+    int x0, y0, x1, y1;
+    fscanf(fileTXT, "%d %d %d %d\n", &x0, &y0, &x1, &y1);
+    line2(picture, currentColor, x0, y0, x1, y1);
 
-    fscanf(fileTXT, " %d %d %d", &poly.qtdLinhas, &poly.x0, &poly.y0);
-    line.x0 = poly.x0;
-    line.y0 = poly.y0;
+}
 
-    do{
-        fscanf(fileTXT, " %d %d", &x, &y);
-        line.x1 = x;
-        line.y1 = y;
+Image polygon(Image picture, FILE *fileTXT, Pixel *currentColor){
 
-        picture = line_after_read(picture, line, current_color);
+    /*fx and fy are the coordinates of the first vertice. They will
+    be useful for making the last line of the polygon which conects the
+    last vertice to the first*/
+    int fx, fy, x0, y0, x1, y1, qtyLines, i;
 
-        line.x0 = x;
-        line.y0 = y;
-        
-        cont++;
+    fscanf(fileTXT, " %d %d %d", &qtyLines, &fx, &fy);
+    x0 = fx;
+    y0 = fy;
 
-        if (cont == poly.qtdLinhas - 1){
-            fscanf(fileTXT, "\n"); //Colocar o ponteiro na próxima linha
-        }  
-    } while (cont < poly.qtdLinhas - 1);
+    for(i = 0; i < qtyLines; i++){
+        fscanf(fileTXT, " %d %d", &x1, &y1);
 
-    line.x1 = poly.x0;
-    line.y1 = poly.y0;
+        picture = line2(picture, currentColor, x0, y0, x1, y1);
 
-    picture = line_after_read(picture, line, current_color);
+        x0 = x1;
+        y0 = y1;
+    }
+
+    //Places the file pointer in the next line of the file
+    fscanf(fileTXT, "\n"); 
+
+    //Draws the last line
+    picture = line2(picture, currentColor, x0, y0, fx, fy);
 
     return picture; 
-}
-
-Image line_after_read(Image picture, Line line, Pixel *current_color){
-    int dx, dy, sx, sy, err, e2;
-    
-    dx = abs(line.x1 - line.x0);
-    if(line.x0 < line.x1){
-        sx = 1;
-    }
-    else{
-        sx = -1;
-    }
-
-    dy = abs(line.y1 - line.y0);
-    if (line.y0 < line.y1){
-        sy = 1;
-    }
-    else{
-        sy = -1;
-    }
-
-    //Essa parte do "err" e do "e2" eu n entendi ainda
-    if(dx > dy){   //Ou seja, menor que 1
-        err = dx/2;
-    }
-    else{
-        err = -dy/2;
-    }
-
-    do{
-    picture.pixels[line.y0][line.x0] = *current_color;
-
-    e2 = err;
-
-    if(e2 > -dx){
-      err -= dy;
-      line.x0 += sx;
-    }
-    if(e2 < dy){
-      err += dx; 
-      line.y0 += sy;
-    }
-
-    }while(line.x0 != line.x1 || line.y0 != line.y1);
-
-    return picture;
 }
