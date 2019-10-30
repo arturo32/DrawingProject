@@ -78,13 +78,13 @@ Image polygon(Image picture, FILE *fileTXT, Pixel *currentColor){
     /*fx and fy are the coordinates of the first vertice. They will
     be useful for making the last line of the polygon which conects the
     last vertice to the first*/
-    int fx, fy, x0, y0, x1, y1, qtyLines, i;
+    int fx, fy, x0, y0, x1, y1, vertices, i;
 
-    fscanf(fileTXT, " %d %d %d", &qtyLines, &fx, &fy);
+    fscanf(fileTXT, " %d %d %d", &vertices, &fx, &fy);
     x0 = fx;
     y0 = fy;
 
-    for(i = 0; i < qtyLines; i++){
+    for(i = 0; i < vertices; i++){
         fscanf(fileTXT, " %d %d", &x1, &y1);
 
         picture = line2(picture, currentColor, x0, y0, x1, y1);
