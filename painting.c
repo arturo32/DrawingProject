@@ -2,7 +2,7 @@
 #include "types.h"
 #include <stdio.h>
 
-Image clear(Image picture, FILE *fileTXT, Pixel *current_color){
+Image clear(Image picture, FILE* fileTXT, Pixel* currentColor){
     int i, j;
     Pixel pixel;
 
@@ -14,8 +14,8 @@ Image clear(Image picture, FILE *fileTXT, Pixel *current_color){
         }
     }
 
-    *current_color = pixel;
+    *currentColor = pixel;
     return picture;
 }
 
-//fill(){}
+//Image fill()
