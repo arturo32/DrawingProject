@@ -5,8 +5,8 @@
 #include <stdio.h>
 
 //circle();
-Image polygon(Image picture, FILE *fileTXT, Pixel *current_color);
-Image line(Image picture, FILE *fileTXT, Pixel *current_color);
-Image line_after_read(Image picture, Line line, Pixel *current_color);
+Image polygon(Image picture, FILE *fileTXT, Pixel *currentColor);
+Image line2(Image picture, Pixel* currentColor, int x0, int y0, int x1, int y1);
+Image line(Image picture, Pixel* currentColor, FILE* fileTXT);
 
 #endif
