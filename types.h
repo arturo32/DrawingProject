@@ -13,14 +13,4 @@ typedef struct{
 	int width;
 }Image;
 
-typedef struct{
-    int x0, y0;
-    int x1, y1;
-}Line;
-
-typedef struct{
-    int qtdLinhas;
-    int x0, y0;
-}Polygon;
-
 #endif
