@@ -4,7 +4,7 @@
 #include "types.h"
 #include <stdio.h>
 //fill();
-Image clear(Image picture, FILE *fileTXT, Pixel *current_color);
+Image clear(Image picture, FILE* fileTXT, Pixel* currentColor);
 
 
 #endif
