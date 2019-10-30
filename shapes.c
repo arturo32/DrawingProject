@@ -3,8 +3,9 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-//rect(){}
-//circle(){}
+Image rect(Image picture, Pixel* currentColor, FILE* fileTXT){}
+Image circle(Image picture, Pixel* currentColor, FILE* fileTXT){}
+Image fill(Image picture, Pixel* currentColor, FILE* fileTXT){}
 
 //Line function to be used directly from the polygon function
 Image line2(Image picture, Pixel* currentColor, int x0, int y0, int x1, int y1){

@@ -50,7 +50,7 @@ void save(Image picture, FILE *fileTXT){
     //Creating a file ready to be written with a name of "myimg.ppm"
     ppmimg = fopen(imageName, "w"); 
     if(ppmimg == NULL){
-       printf("ERORRR\n");
+       printf("Error in creating ppm file.\n");
        exit(EXIT_FAILURE);
     }
   
