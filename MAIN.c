@@ -12,7 +12,7 @@ int main(int argc, char const *argv[]){
   char const *fileNameTXT; //Nome do arquivo txt que será aberto
   char functionName[10];  //Rever o tamanho das variaveis
   Image picture;
-  Pixel current_color; //Cor que está sendo usada
+  Pixel currentColor; //Cor que está sendo usada
   FILE *fileTXT;  //Ponteiro para o arquivo txt
  
 
@@ -20,30 +20,25 @@ int main(int argc, char const *argv[]){
 
   fileTXT = fopen(fileNameTXT, "r");
   if(fileTXT == NULL){
-    printf("ERORRR\n");
+    printf("Error in opening the txt file.\n");
     exit(EXIT_FAILURE);
   }
-  
-
-  
-  //A leitura do arquivo está errada
-  //Pesquisando sobre funções de leitura
 
   while (fscanf(fileTXT, "%s", functionName) != EOF){
     if (strcmp(functionName, "image") == 0){
       picture = newImage(fileTXT);
     }
     else if (strcmp(functionName, "clear") == 0){
-      picture = clear(picture, fileTXT, &current_color);
+      picture = clear(picture, fileTXT, &currentColor);
     }
     else if (strcmp(functionName, "color") == 0){
-      current_color = color(fileTXT, current_color);
+      currentColor = color(fileTXT, currentColor);
     }
     else if (strcmp(functionName, "line") == 0){
-      picture = line(picture, fileTXT, &current_color);
+      picture = line(picture, &currentColor, fileTXT);
     }
     else if (strcmp(functionName, "polygon") == 0){
-      picture = polygon(picture, fileTXT, &current_color);
+      picture = polygon(picture, fileTXT, &currentColor);
     }
     else if (strcmp(functionName, "save") == 0){
       save(picture, fileTXT);
