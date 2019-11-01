@@ -8,7 +8,6 @@
 
 int main(int argc, char const *argv[]){
  
-  int count=0, height, width;
   char const *fileNameTXT; //Nome do arquivo txt que será aberto
   char functionName[10];  //Rever o tamanho das variaveis
   Image picture;
