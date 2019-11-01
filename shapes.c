@@ -3,8 +3,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-Image rect(Image picture, Pixel* currentColor, FILE* fileTXT){}
-Image circle(Image picture, Pixel* currentColor, FILE* fileTXT){}
+//Image rect(Image picture, Pixel* currentColor, FILE* fileTXT){}
+//Image circle(Image picture, Pixel* currentColor, FILE* fileTXT){}
 
 //Line function to be used directly from the polygon function
 Image line2(Image picture, Pixel* currentColor, int x0, int y0, int x1, int y1){
@@ -69,8 +69,7 @@ Image line2(Image picture, Pixel* currentColor, int x0, int y0, int x1, int y1){
 Image line(Image picture, Pixel* currentColor, FILE* fileTXT){
     int x0, y0, x1, y1;
     fscanf(fileTXT, "%d %d %d %d\n", &x0, &y0, &x1, &y1);
-    line2(picture, currentColor, x0, y0, x1, y1);
-
+    return line2(picture, currentColor, x0, y0, x1, y1);
 }
 
 Image polygon(Image picture, FILE *fileTXT, Pixel *currentColor){
