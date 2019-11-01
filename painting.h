@@ -3,7 +3,7 @@
 
 #include "types.h"
 #include <stdio.h>
-//fill();
+Image fill(Image picture, FILE* fileTXT, Pixel* currentColor);
 Image clear(Image picture, FILE* fileTXT, Pixel* currentColor);
 
 

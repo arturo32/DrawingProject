@@ -18,4 +18,6 @@ Image clear(Image picture, FILE* fileTXT, Pixel* currentColor){
     return picture;
 }
 
+Image fill(Image picture, FILE* fileTXT, Pixel* currentColor){}
+
 //Image fill()
