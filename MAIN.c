@@ -8,22 +8,32 @@
 
 int main(int argc, char const *argv[]){
  
-  char const *fileNameTXT; //Nome do arquivo txt que será aberto
-  char functionName[10];  //Rever o tamanho das variaveis
+  /*Pointer to the name of the txt file informed in execution and passed as
+  an argument in the main function*/
+  char const *fileNameTXT = argv[1];
+
+  //The string that will store the first word of a command in the txt file
+  char functionName[10]; 
+
+  //Variable that will store the image in a matrix 
   Image picture;
-  Pixel currentColor; //Cor que está sendo usada
-  FILE *fileTXT;  //Ponteiro para o arquivo txt
- 
 
-  fileNameTXT = argv[1];
+  //The color that is set in the moment
+  Pixel currentColor; 
 
+  //File pointer for the txt file
+  FILE *fileTXT; 
+
+  //Opening the txt file for reading
   fileTXT = fopen(fileNameTXT, "r");
   if(fileTXT == NULL){
     printf("Error in opening the txt file.\n");
     exit(EXIT_FAILURE);
   }
 
-  while (fscanf(fileTXT, "%s", functionName) != EOF){
+  /*Reading the first word of a command and calling its corresponding function
+  until the file ends (EOF)*/
+  while(fscanf(fileTXT, "%s", functionName) != EOF){
     if (strcmp(functionName, "image") == 0){
       picture = newImage(fileTXT);
     }
@@ -44,6 +54,7 @@ int main(int argc, char const *argv[]){
     }
   }
   
+  //Closing the txt file
   fclose(fileTXT);
 
   return 0; 
