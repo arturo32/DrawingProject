@@ -3,8 +3,9 @@
 
 #include "types.h"
 #include <stdio.h>
-Image fill(Image picture, FILE* fileTXT, Pixel* currentColor);
 Image clear(Image picture, FILE* fileTXT, Pixel* currentColor);
+Image fill(Image picture, FILE* fileTXT, Pixel* currentColor);
+Pixel color(FILE *fileTXT, Pixel currentColor);
 
 
 #endif

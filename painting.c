@@ -20,4 +20,10 @@ Image clear(Image picture, FILE* fileTXT, Pixel* currentColor){
 
 Image fill(Image picture, FILE* fileTXT, Pixel* currentColor){}
 
-//Image fill()
+Pixel color(FILE *fileTXT, Pixel currentColor){
+
+    fscanf(fileTXT, " %hhu %hhu %hhu\n", &currentColor.R, &currentColor.G, &currentColor.B);
+
+    return currentColor;
+}
+
