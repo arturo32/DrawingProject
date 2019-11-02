@@ -55,8 +55,11 @@ Image line2(Image picture, Pixel* currentColor, int x0, int y0, int x1, int y1){
       y += sy;
     }
 
-    //"x != x1+sx" to x1 have the chance to be printed (and then added sx) 
-    }while(x != x1+sx);
+    /*"x != x1+sx" to x1 have the chance to be printed (and then added sx).
+    The same goes for "y != y1+sy. Both of them are in a "and" expression
+    to prevent cases like horizontal lines in which y never changes and 
+    vertical lines in which x never changes*/ 
+    }while(x != x1+sx && y != y1+sy);
 
     return picture;
 }
