@@ -26,3 +26,15 @@ Pixel color(FILE *fileTXT, Pixel currentColor){
     return currentColor;
 }
 
+Image paintPointsInAllOctants(int centerX, int centerY, int x, int y, Pixel* currentColor, Image picture){
+  picture.pixels[centerY+y][centerX+x] = *currentColor;
+  picture.pixels[centerY-x][centerX-y] = *currentColor;
+  picture.pixels[centerY-x][centerX+y] = *currentColor;
+  picture.pixels[centerY+x][centerX-y] = *currentColor;
+  picture.pixels[centerY+x][centerX+y] = *currentColor;
+  picture.pixels[centerY-y][centerX-x] = *currentColor;
+  picture.pixels[centerY-y][centerX+x] = *currentColor;
+  picture.pixels[centerY+y][centerX-x] = *currentColor;
+
+  return picture;
+}

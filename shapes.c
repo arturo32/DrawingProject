@@ -99,19 +99,6 @@ Image polygon(Image picture, FILE *fileTXT, Pixel *currentColor){
     return picture; 
 }
 
-Image paintMatchingPoints(int centerX, int centerY, int x, int y, Pixel* currentColor, Image picture){
-  picture.pixels[centerY+y][centerX+x] = *currentColor;
-  picture.pixels[centerY-x][centerX-y] = *currentColor;
-  picture.pixels[centerY-x][centerX+y] = *currentColor;
-  picture.pixels[centerY+x][centerX-y] = *currentColor;
-  picture.pixels[centerY+x][centerX+y] = *currentColor;
-  picture.pixels[centerY-y][centerX-x] = *currentColor;
-  picture.pixels[centerY-y][centerX+x] = *currentColor;
-  picture.pixels[centerY+y][centerX-x] = *currentColor;
-
-  return picture;
-}
-
 Image circle(Image picture, Pixel* currentColor, FILE* fileTXT){
 
   int d,r,x,y,centerX,centerY;

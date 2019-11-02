@@ -6,6 +6,6 @@
 Image clear(Image picture, FILE* fileTXT, Pixel* currentColor);
 Image fill(Image picture, FILE* fileTXT, Pixel* currentColor);
 Pixel color(FILE *fileTXT, Pixel currentColor);
-
+Image paintPointsInAllOctants(int centerX, int centerY, int x, int y, Pixel* currentColor, Image picture);
 
 #endif
