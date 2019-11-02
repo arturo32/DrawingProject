@@ -9,7 +9,7 @@
 //Line function to be used directly from the polygon function
 Image line2(Image picture, Pixel* currentColor, int x0, int y0, int x1, int y1){
 
-    int dx, dy, sx, sy, err, e2;
+    int x, y, e, k, dx, dy, sx, sy;
   
     /*Calculating the differences between the x's and y's
     (they will tell the slope of the line) and checking if the line
@@ -18,49 +18,45 @@ Image line2(Image picture, Pixel* currentColor, int x0, int y0, int x1, int y1){
     (add 1 to y0) or from the bottom to the top (add -1 to y0). All of this
     is to find the octant that the line is placed to follow the Bresenham's
     Algorithm*/
-    dx = abs(x1 - x0);
-    if(x0 < x1){
-        sx = 1;
-    }
-    else{
-        sx = -1;
-    }
+    dx = abs(x1-x0);
+    dy = abs(y1-y0);
+    sx = x0 < x1 ? 1 : -1; 
+    sy = y0 < y1 ? 1 : -1;
 
-    dy = abs(y1 - y0);
-    if (y0 < y1){
-        sy = 1;
-    }
-    else{
-        sy = -1;
-    }
-
-    //If the slope is less than 1
-    if(dx > dy){   
-        err = dx/2;
-    }
-    //If the slope is greater than 1
-    else{
-        err = -dy/2;
-    }
-
+    /*e represents the difference in hight(if dx > dy) or width (if dx < dy) 
+    from the real line to the point below / in the left of it*/
+    e = 0;
+    y = y0;
+    x = x0;
+ 
     do{
 
     /*Setting each pixel to the current color. y and x are switched because
     in matrixes the rows comes before the collumns*/
-    picture.pixels[y0][x0] = *currentColor;
+    picture.pixels[y][x] = *currentColor;
+    if(dx > dy){
 
-    e2 = err;
-
-    if(e2 > -dx){
-      err -= dy;
-      x0 += sx;
+      //Expression derivated from "e + m >= 0.5"
+      if(2*e + 2*dy >= dx){
+        y += sy;
+        e -= dx;
+      }
+      e += dy;
+      x += sx;
     }
-    if(e2 < dy){
-      err += dx; 
-      y0 += sy;
+    else{
+
+      //Expression derivated from "e + y/m >= 0.5"
+      if(2*e + 2*dx*y1 >= dy){
+        x += sx;
+        e -= dy*y1;
+      }
+      e += dx*y1;
+      y += sy;
     }
 
-    }while(x0 != x1 || y0 != y1);
+    //"x != x1+sx" to x1 have the chance to be printed (and then added sx) 
+    }while(x != x1+sx);
 
     return picture;
 }
