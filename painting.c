@@ -23,7 +23,6 @@ Image fill(Image picture, FILE* fileTXT, Pixel* currentColor){}
 Pixel color(FILE *fileTXT, Pixel currentColor){
 
     fscanf(fileTXT, " %hhu %hhu %hhu\n", &currentColor.R, &currentColor.G, &currentColor.B);
-
     return currentColor;
 }
 

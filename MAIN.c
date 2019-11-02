@@ -49,6 +49,9 @@ int main(int argc, char const *argv[]){
     else if (strcmp(functionName, "polygon") == 0){
       picture = polygon(picture, fileTXT, &currentColor);
     }
+    else if (strcmp(functionName, "circle") == 0){
+      picture = circle(picture, &currentColor, fileTXT);
+    }
     else if (strcmp(functionName, "save") == 0){
       save(picture, fileTXT);
     }

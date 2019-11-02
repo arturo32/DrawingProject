@@ -4,7 +4,6 @@
 #include <stdio.h>
 
 //Image rect(Image picture, Pixel* currentColor, FILE* fileTXT){}
-//Image circle(Image picture, Pixel* currentColor, FILE* fileTXT){}
 
 //Line function to be used directly from the polygon function
 Image line2(Image picture, Pixel* currentColor, int x0, int y0, int x1, int y1){
@@ -99,3 +98,43 @@ Image polygon(Image picture, FILE *fileTXT, Pixel *currentColor){
 
     return picture; 
 }
+
+Image paintMatchingPoints(int centerX, int centerY, int x, int y, Pixel* currentColor, Image picture){
+  picture.pixels[centerY+y][centerX+x] = *currentColor;
+  picture.pixels[centerY-x][centerX-y] = *currentColor;
+  picture.pixels[centerY-x][centerX+y] = *currentColor;
+  picture.pixels[centerY+x][centerX-y] = *currentColor;
+  picture.pixels[centerY+x][centerX+y] = *currentColor;
+  picture.pixels[centerY-y][centerX-x] = *currentColor;
+  picture.pixels[centerY-y][centerX+x] = *currentColor;
+  picture.pixels[centerY+y][centerX-x] = *currentColor;
+
+  return picture;
+}
+
+Image circle(Image picture, Pixel* currentColor, FILE* fileTXT){
+
+  int d,r,x,y,centerX,centerY;
+
+  fscanf(fileTXT, " %d %d %d", &centerX, &centerY, &r);
+
+  d=3-2*r;
+  x=0;
+  y=r;
+
+  while(x<=y){
+    picture = paintMatchingPoints(centerX, centerY, x, y, currentColor, picture);
+
+    if(d<=0){
+      d=d+4*x+6;
+    }
+    else{
+      d=d+4*x-4*y+10;
+      y--;
+    }
+
+    x++;
+  }
+  return picture;
+}
+
