@@ -1,9 +1,9 @@
 #include "shapes.h"
+#include "painting.h"
 #include "types.h"
 #include <stdlib.h>
 #include <stdio.h>
 
-//Image rect(Image picture, Pixel* currentColor, FILE* fileTXT){}
 
 //Line function to be used directly from the polygon function
 Image line2(Image picture, Pixel* currentColor, int x0, int y0, int x1, int y1){
@@ -103,14 +103,14 @@ Image circle(Image picture, Pixel* currentColor, FILE* fileTXT){
 
   int d,r,x,y,centerX,centerY;
 
-  fscanf(fileTXT, " %d %d %d", &centerX, &centerY, &r);
+  fscanf(fileTXT, " %d %d %d\n", &centerX, &centerY, &r);
 
   d=3-2*r;
   x=0;
   y=r;
 
   while(x<=y){
-    picture = paintMatchingPoints(centerX, centerY, x, y, currentColor, picture);
+    picture = paintPointsInAllOctants(centerX, centerY, x, y, currentColor, picture);
 
     if(d<=0){
       d=d+4*x+6;
@@ -125,3 +125,15 @@ Image circle(Image picture, Pixel* currentColor, FILE* fileTXT){
   return picture;
 }
 
+Image rect(Image picture, Pixel* currentColor, FILE* fileTXT){
+
+  int x0, y0, height, width, i;
+  fscanf(fileTXT, " %d %d %d %d\n", &x0, &y0, &height, &width);
+  
+  picture = line2(picture, currentColor, x0 , y0, x0 + width, y0);
+  picture = line2(picture, currentColor, x0 + width, y0, x0+width, y0 + height);
+  picture = line2(picture, currentColor, x0 + width, y0 + height, x0, y0 + height);
+  picture = line2(picture, currentColor, x0, y0 + height, x0, y0);
+  
+  return picture;
+}

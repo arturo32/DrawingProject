@@ -4,4 +4,5 @@ color 0 0 0
 line 0 400 600 200
 polygon 3 0 400 300 200 600 400
 circle 300 200 50
+rect 100 200 100 50
 save test.ppm
