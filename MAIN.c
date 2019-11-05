@@ -55,6 +55,9 @@ int main(int argc, char const *argv[]){
     else if (strcmp(functionName, "rect") == 0){
       picture = rect(picture, &currentColor, fileTXT);
     }
+    else if (strcmp(functionName, "fill") == 0){
+      picture = fill(picture, fileTXT, &currentColor);
+    }
     else if (strcmp(functionName, "save") == 0){
       save(picture, fileTXT);
     }
