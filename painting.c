@@ -18,7 +18,33 @@ Image clear(Image picture, FILE* fileTXT, Pixel* currentColor){
     return picture;
 }
 
-Image fill(Image picture, FILE* fileTXT, Pixel* currentColor){}
+Image fill(Image picture, FILE* fileTXT, Pixel* currentColor){
+  int i, j, k, x, y;
+  fscanf(fileTXT, "%d %d\n", &x, &y);
+  Pixel pastColor = picture.pixels[y][x];
+  recursiveFill(picture, *currentColor, pastColor, x, y);
+  return picture;
+}
+
+void recursiveFill(Image picture, Pixel currentColor, Pixel pastColor, int x, int y){
+  if(x < picture.width && y < picture.height && x >= 0 && y >= 0){
+    if(picture.pixels[y][x].R == pastColor.R &&
+       picture.pixels[y][x].G == pastColor.G &&
+       picture.pixels[y][x].B == pastColor.B){
+      if(picture.pixels[y][x].R != currentColor.R ||
+         picture.pixels[y][x].G != currentColor.G ||
+         picture.pixels[y][x].B != currentColor.B){
+      
+        printf("%d %d\n", x, y);
+        picture.pixels[y][x] = currentColor; 
+        recursiveFill(picture, currentColor, pastColor, x+1, y);
+        recursiveFill(picture, currentColor, pastColor, x-1, y);
+        recursiveFill(picture, currentColor, pastColor, x, y+1);
+        recursiveFill(picture, currentColor, pastColor, x, y-1);
+      }       
+    }
+  }
+}
 
 Pixel color(FILE *fileTXT, Pixel currentColor){
 
