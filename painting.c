@@ -27,15 +27,19 @@ Image fill(Image picture, FILE* fileTXT, Pixel* currentColor){
 }
 
 void recursiveFill(Image picture, Pixel currentColor, Pixel pastColor, int x, int y){
+  //If (x, y) is in the bounds of the image
   if(x < picture.width && y < picture.height && x >= 0 && y >= 0){
+
+    //If (x, y) is in the area of same color from the starting pixel
     if(picture.pixels[y][x].R == pastColor.R &&
        picture.pixels[y][x].G == pastColor.G &&
        picture.pixels[y][x].B == pastColor.B){
+
+      //If the function didn't alredy passed by (x, y) 
       if(picture.pixels[y][x].R != currentColor.R ||
          picture.pixels[y][x].G != currentColor.G ||
          picture.pixels[y][x].B != currentColor.B){
-      
-        printf("%d %d\n", x, y);
+    
         picture.pixels[y][x] = currentColor; 
         recursiveFill(picture, currentColor, pastColor, x+1, y);
         recursiveFill(picture, currentColor, pastColor, x-1, y);
