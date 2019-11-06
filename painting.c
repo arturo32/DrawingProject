@@ -39,8 +39,10 @@ void recursiveFill(Image picture, Pixel currentColor, Pixel pastColor, int x, in
       if(picture.pixels[y][x].R != currentColor.R ||
          picture.pixels[y][x].G != currentColor.G ||
          picture.pixels[y][x].B != currentColor.B){
-    
+        
+        //Painting the pixel
         picture.pixels[y][x] = currentColor; 
+
         recursiveFill(picture, currentColor, pastColor, x+1, y);
         recursiveFill(picture, currentColor, pastColor, x-1, y);
         recursiveFill(picture, currentColor, pastColor, x, y+1);
