@@ -5,6 +5,7 @@
 #include "IO.h"
 #include "painting.h"
 #include <string.h>
+#include <time.h>
 
 int main(int argc, char const *argv[]){
  
