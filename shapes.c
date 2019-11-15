@@ -137,3 +137,78 @@ Image rect(Image picture, Pixel* currentColor, FILE* fileTXT){
   
   return picture;
 }
+
+Image regPolygon(Image picture, FILE *fileTXT, Pixel currentColor){
+ 
+  /*n is the number os sides os the polygon and s varies between 1 and n. 
+  x and y are the center of the polygon*/
+  int n, r, x, y, s, vx, vy, vx2, vy2;
+  s = 1;
+
+  fscanf(fileTXT, " %d %d %d %d\n", &n, &r, &x, &y);
+
+  while(s != n){
+
+    //"M_PI/2" rotates the polygon 90° to the left 
+    vx = r*cos(2*M_PI*s/n - M_PI/2) + x;
+    vy = r*sin(2*M_PI*s/n - M_PI/2) + y;
+    s++;
+    vx2 = r*cos(2*M_PI*s/n - M_PI/2) + x;
+    vy2 = r*sin(2*M_PI*s/n - M_PI/2)+ y;
+    line2(picture, &currentColor, vx, vy, vx2, vy2);
+  }
+ 
+  vx = r*cos(2*M_PI*1/n - M_PI/2) + x;
+  vy = r*sin(2*M_PI*1/n - M_PI/2) + y;
+  line2(picture, &currentColor, vx, vy, vx2, vy2);
+  
+  return picture;
+}
+
+Image curve(Image picture, FILE *fileTXT, Pixel currentColor){
+
+  //r is the number of curves that will be coming from the point (x, y)
+  int x, y, i, x2, y2, x3, y3;
+  fscanf(fileTXT, " %d %d %d %d %d %d\n", &x, &y, &x2, &y2, &x3, &y3);
+  int finalx, finaly;
+  double t = 0.0001;
+
+  //Calculating the points of the Bèzier quadratic curve
+  do{
+    finalx = powf(1-t, 2)*x + (1-t)*2*t*x2 + t*t*x3;
+    finaly = powf(1-t, 2)*y + (1-t)*2*t*y2 + t*t*y3;
+    for(int k = 0; k < 3; k++)
+      picture.pixels[finaly][finalx] = currentColor;
+    t = t + 0.0001;
+  }while(finalx != x3);
+
+  return picture;
+}
+
+Image randCurve(Image picture, FILE *fileTXT, Pixel currentColor){
+
+  //r is the number of curves that will be coming from the point (x, y)
+  int r, x, y, i, x2, y2, x3, y3;
+  fscanf(fileTXT, " %d %d %d\n", &r, &x, &y);
+  int finalx, finaly;
+
+  /*Setting random values to the coordinates of the Bèzier quadratic curve
+  and calculating your points one by one*/
+  for(i = 0; i < r; i++){
+    double t = 0.0001;
+    x2 = rand()%picture.width; 
+    y2 = rand()%picture.height; 
+    x3 = rand()%picture.width; 
+    y3 = rand()%picture.height; 
+
+    do{
+      finalx = powf(1-t, 2)*x + (1-t)*2*t*x2 + t*t*x3;
+      finaly = powf(1-t, 2)*y + (1-t)*2*t*y2 + t*t*y3;
+      for(int k = 0; k < 3; k++)
+        picture.pixels[finaly][finalx] = currentColor;
+      t = t + 0.0001;
+    }while(finalx != x3);
+  }
+
+  return picture;
+}
