@@ -30,7 +30,11 @@ int main(int argc, char const *argv[]){
     printf("Error in opening the txt file.\n");
     exit(EXIT_FAILURE);
   }
-
+ 
+  /*Setting the "seed" of the rand function to be the current time. This will 
+  be useful in the randCurve function*/
+  srand(time(NULL)); 
+  
   /*Reading the first word of a command and calling its corresponding function
   until the file ends (EOF)*/
   while(fscanf(fileTXT, "%s", functionName) != EOF){
@@ -49,6 +53,9 @@ int main(int argc, char const *argv[]){
     else if (strcmp(functionName, "polygon") == 0){
       picture = polygon(picture, fileTXT, &currentColor);
     }
+    else if(strcmp(functionName, "rpolygon") == 0){
+      picture = regPolygon(picture, fileTXT, currentColor);
+    }   
     else if (strcmp(functionName, "circle") == 0){
       picture = circle(picture, &currentColor, fileTXT);
     }
@@ -58,6 +65,12 @@ int main(int argc, char const *argv[]){
     else if (strcmp(functionName, "fill") == 0){
       picture = fill(picture, fileTXT, &currentColor);
     }
+    else if(strcmp(functionName, "curve") == 0){
+      picture = curve(picture, fileTXT, currentColor);
+    }
+    else if(strcmp(functionName, "randcurve") == 0){
+      picture = randCurve(picture, fileTXT, currentColor);
+    }    
     else if (strcmp(functionName, "save") == 0){
       save(picture, fileTXT);
     }
