@@ -3,6 +3,9 @@
 #include "types.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <math.h>
+#include <time.h>
+
 
 
 //Line function to be used directly from the polygon function
