@@ -143,30 +143,32 @@ Image polygon(Image picture, FILE *fileTXT, Pixel currentColor){
     return picture; 
 }
 
-// Draws a regular polygon from its number of vertices, radius and the its center.
+// Draws a regular polygon from its number of vertices, radius, rotation and the its center.
 Image regPolygon(Image picture, FILE *fileTXT, Pixel currentColor){
  
-  /*n is the number of sides of the polygon and s varies between 1 and n. 
+  /*n is the number os sides os the polygon and s varies between 1 and n. 
   x and y are the center of the polygon*/
   int n, r, x, y, s, vx, vy, vx2, vy2;
+  double rotation;
   s = 1;
 
-  fscanf(fileTXT, " %d %d %d %d\n", &n, &r, &x, &y);
+  fscanf(fileTXT, " %d %d %lf %d %d\n", &n, &r, &rotation, &x, &y);
+
+  //Trasforming degrees in radians. This rotation is made anticlockwise
+  rotation = rotation * M_PI/180;  
 
   while(s != n){
-
-    //"M_PI/2" rotates the polygon 90° to the left 
-    vx = r*cos(2*M_PI*s/n - M_PI/2) + x;
-    vy = r*sin(2*M_PI*s/n - M_PI/2) + y;
+    vx = r*cos(2*M_PI*s/n - rotation) + x;
+    vy = r*sin(2*M_PI*s/n - rotation) + y;
     s++;
-    vx2 = r*cos(2*M_PI*s/n - M_PI/2) + x;
-    vy2 = r*sin(2*M_PI*s/n - M_PI/2)+ y;
-    line2(picture, currentColor, vx, vy, vx2, vy2);
+    vx2 = r*cos(2*M_PI*s/n - rotation) + x;
+    vy2 = r*sin(2*M_PI*s/n - rotation)+ y;
+    line2(picture, &currentColor, vx, vy, vx2, vy2);
   }
  
-  vx = r*cos(2*M_PI*1/n - M_PI/2) + x;
-  vy = r*sin(2*M_PI*1/n - M_PI/2) + y;
-  line2(picture, currentColor, vx, vy, vx2, vy2);
+  vx = r*cos(2*M_PI/n - rotation) + x;
+  vy = r*sin(2*M_PI/n - rotation) + y;
+  line2(picture, &currentColor, vx, vy, vx2, vy2);
   
   return picture;
 }
