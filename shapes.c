@@ -163,12 +163,12 @@ Image regPolygon(Image picture, FILE *fileTXT, Pixel currentColor){
     s++;
     vx2 = r*cos(2*M_PI*s/n - rotation) + x;
     vy2 = r*sin(2*M_PI*s/n - rotation)+ y;
-    line2(picture, &currentColor, vx, vy, vx2, vy2);
+    line2(picture, currentColor, vx, vy, vx2, vy2);
   }
  
   vx = r*cos(2*M_PI/n - rotation) + x;
   vy = r*sin(2*M_PI/n - rotation) + y;
-  line2(picture, &currentColor, vx, vy, vx2, vy2);
+  line2(picture, currentColor, vx, vy, vx2, vy2);
   
   return picture;
 }
