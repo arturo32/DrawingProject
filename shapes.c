@@ -9,7 +9,7 @@
 
 
 //Line function to be used directly from the polygon function
-Image line2(Image picture, Pixel* currentColor, int x0, int y0, int x1, int y1){
+Image line2(Image picture, Pixel currentColor, int x0, int y0, int x1, int y1){
 
     int x, y, e, k, dx, dy, sx, sy;
   
@@ -35,7 +35,7 @@ Image line2(Image picture, Pixel* currentColor, int x0, int y0, int x1, int y1){
 
     /*Setting each pixel to the current color. y and x are switched because
     in matrixes the rows comes before the collumns*/
-    picture.pixels[y][x] = *currentColor;
+    picture.pixels[y][x] = currentColor;
     if(dx > dy){
 
       //Expression derivated from "e + m >= 0.5"
@@ -67,13 +67,54 @@ Image line2(Image picture, Pixel* currentColor, int x0, int y0, int x1, int y1){
 }
 
 //Line function to be used in the MAIN file 
-Image line(Image picture, Pixel* currentColor, FILE* fileTXT){
+Image line(Image picture, Pixel currentColor, FILE* fileTXT){
     int x0, y0, x1, y1;
     fscanf(fileTXT, "%d %d %d %d\n", &x0, &y0, &x1, &y1);
     return line2(picture, currentColor, x0, y0, x1, y1);
 }
 
-Image polygon(Image picture, FILE *fileTXT, Pixel *currentColor){
+// Draws a circle from its center and radius.
+Image circle(Image picture, Pixel currentColor, FILE* fileTXT){
+
+  int d,r,x,y,centerX,centerY;
+
+  fscanf(fileTXT, " %d %d %d\n", &centerX, &centerY, &r);
+
+  d=3-2*r;
+  x=0;
+  y=r;
+
+  while(x<=y){
+    picture = paintCirclePoints(centerX, centerY, x, y, currentColor, picture);
+
+    if(d<=0){
+      d=d+4*x+6;
+    }
+    else{
+      d=d+4*x-4*y+10;
+      y--;
+    }
+    x++;
+  }
+  return picture;
+}
+
+// Draws a rectangle from its top-left point and its width and height.
+Image rect(Image picture, Pixel currentColor, FILE* fileTXT){
+
+  int x0, y0, height, width, i;
+  fscanf(fileTXT, " %d %d %d %d\n", &x0, &y0, &height, &width);
+  
+  picture = line2(picture, currentColor, x0 , y0, x0 + width, y0);
+  picture = line2(picture, currentColor, x0 + width, y0, x0+width, y0 + height);
+  picture = line2(picture, currentColor, x0 + width, y0 + height, x0, y0 + height);
+  picture = line2(picture, currentColor, x0, y0 + height, x0, y0);
+  
+  return picture;
+}
+
+// Draws any polygon from its number of vertices and their respective coordinates.
+Image polygon(Image picture, FILE *fileTXT, Pixel currentColor){
 
     /*fx and fy are the coordinates of the first vertice. They will
     be useful for making the last line of the polygon which conects the
@@ -102,48 +143,10 @@ Image polygon(Image picture, FILE *fileTXT, Pixel *currentColor){
     return picture; 
 }
 
-Image circle(Image picture, Pixel* currentColor, FILE* fileTXT){
-
-  int d,r,x,y,centerX,centerY;
-
-  fscanf(fileTXT, " %d %d %d\n", &centerX, &centerY, &r);
-
-  d=3-2*r;
-  x=0;
-  y=r;
-
-  while(x<=y){
-    picture = paintPointsInAllOctants(centerX, centerY, x, y, currentColor, picture);
-
-    if(d<=0){
-      d=d+4*x+6;
-    }
-    else{
-      d=d+4*x-4*y+10;
-      y--;
-    }
-
-    x++;
-  }
-  return picture;
-}
-
-Image rect(Image picture, Pixel* currentColor, FILE* fileTXT){
-
-  int x0, y0, height, width, i;
-  fscanf(fileTXT, " %d %d %d %d\n", &x0, &y0, &height, &width);
-  
-  picture = line2(picture, currentColor, x0 , y0, x0 + width, y0);
-  picture = line2(picture, currentColor, x0 + width, y0, x0+width, y0 + height);
-  picture = line2(picture, currentColor, x0 + width, y0 + height, x0, y0 + height);
-  picture = line2(picture, currentColor, x0, y0 + height, x0, y0);
-  
-  return picture;
-}
-
+// Draws a regular polygon from its number of vertices, radius and the its center.
 Image regPolygon(Image picture, FILE *fileTXT, Pixel currentColor){
  
-  /*n is the number os sides os the polygon and s varies between 1 and n. 
+  /*n is the number of sides of the polygon and s varies between 1 and n. 
   x and y are the center of the polygon*/
   int n, r, x, y, s, vx, vy, vx2, vy2;
   s = 1;
@@ -158,12 +161,12 @@ Image regPolygon(Image picture, FILE *fileTXT, Pixel currentColor){
     s++;
     vx2 = r*cos(2*M_PI*s/n - M_PI/2) + x;
     vy2 = r*sin(2*M_PI*s/n - M_PI/2)+ y;
-    line2(picture, &currentColor, vx, vy, vx2, vy2);
+    line2(picture, currentColor, vx, vy, vx2, vy2);
   }
  
   vx = r*cos(2*M_PI*1/n - M_PI/2) + x;
   vy = r*sin(2*M_PI*1/n - M_PI/2) + y;
-  line2(picture, &currentColor, vx, vy, vx2, vy2);
+  line2(picture, currentColor, vx, vy, vx2, vy2);
   
   return picture;
 }

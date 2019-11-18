@@ -2,7 +2,8 @@
 #include "types.h"
 #include <stdio.h>
 
-Image clear(Image picture, FILE* fileTXT, Pixel* currentColor){
+// "Clear" all the picture by setting its pixels with the current color.
+Image clear(Image picture, FILE* fileTXT, Pixel currentColor){
     int i, j;
     Pixel pixel;
 
@@ -14,18 +15,20 @@ Image clear(Image picture, FILE* fileTXT, Pixel* currentColor){
         }
     }
 
-    *currentColor = pixel;
+    currentColor = pixel;
     return picture;
 }
 
-Image fill(Image picture, FILE* fileTXT, Pixel* currentColor){
+// This fill function only read the info of the txt file and push their to recursiveFill function.
+Image fill(Image picture, FILE* fileTXT, Pixel currentColor){
   int i, j, k, x, y;
   fscanf(fileTXT, "%d %d\n", &x, &y);
   Pixel pastColor = picture.pixels[y][x];
-  recursiveFill(picture, *currentColor, pastColor, x, y);
+  recursiveFill(picture, currentColor, pastColor, x, y);
   return picture;
 }
 
+// Fill a space until find its edges or the end of the image.
 void recursiveFill(Image picture, Pixel currentColor, Pixel pastColor, int x, int y){
   //If (x, y) is in the bounds of the image
   if(x < picture.width && y < picture.height && x >= 0 && y >= 0){
@@ -52,21 +55,23 @@ void recursiveFill(Image picture, Pixel currentColor, Pixel pastColor, int x, in
   }
 }
 
+// Set the current color to be used.
 Pixel color(FILE *fileTXT, Pixel currentColor){
 
     fscanf(fileTXT, " %hhu %hhu %hhu\n", &currentColor.R, &currentColor.G, &currentColor.B);
     return currentColor;
 }
 
-Image paintPointsInAllOctants(int centerX, int centerY, int x, int y, Pixel* currentColor, Image picture){
-  picture.pixels[centerY+y][centerX+x] = *currentColor;
-  picture.pixels[centerY-x][centerX-y] = *currentColor;
-  picture.pixels[centerY-x][centerX+y] = *currentColor;
-  picture.pixels[centerY+x][centerX-y] = *currentColor;
-  picture.pixels[centerY+x][centerX+y] = *currentColor;
-  picture.pixels[centerY-y][centerX-x] = *currentColor;
-  picture.pixels[centerY-y][centerX+x] = *currentColor;
-  picture.pixels[centerY+y][centerX-x] = *currentColor;
+// Paints the corresponding points in all quadrants of a specific point in the first quadrant.
+Image paintCirclePoints(int centerX, int centerY, int x, int y, Pixel currentColor, Image picture){
+  picture.pixels[centerY+y][centerX+x] = currentColor;
+  picture.pixels[centerY-x][centerX-y] = currentColor;
+  picture.pixels[centerY-x][centerX+y] = currentColor;
+  picture.pixels[centerY+x][centerX-y] = currentColor;
+  picture.pixels[centerY+x][centerX+y] = currentColor;
+  picture.pixels[centerY-y][centerX-x] = currentColor;
+  picture.pixels[centerY-y][centerX+x] = currentColor;
+  picture.pixels[centerY+y][centerX-x] = currentColor;
 
   return picture;
 }

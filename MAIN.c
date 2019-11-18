@@ -43,28 +43,28 @@ int main(int argc, char const *argv[]){
       picture = newImage(fileTXT);
     }
     else if (strcmp(functionName, "clear") == 0){
-      picture = clear(picture, fileTXT, &currentColor);
+      picture = clear(picture, fileTXT, currentColor);
     }
     else if (strcmp(functionName, "color") == 0){
       currentColor = color(fileTXT, currentColor);
     }
     else if (strcmp(functionName, "line") == 0){
-      picture = line(picture, &currentColor, fileTXT);
+      picture = line(picture, currentColor, fileTXT);
     }
     else if (strcmp(functionName, "polygon") == 0){
-      picture = polygon(picture, fileTXT, &currentColor);
+      picture = polygon(picture, fileTXT, currentColor);
     }
     else if(strcmp(functionName, "rpolygon") == 0){
       picture = regPolygon(picture, fileTXT, currentColor);
     }   
     else if (strcmp(functionName, "circle") == 0){
-      picture = circle(picture, &currentColor, fileTXT);
+      picture = circle(picture, currentColor, fileTXT);
     }
     else if (strcmp(functionName, "rect") == 0){
-      picture = rect(picture, &currentColor, fileTXT);
+      picture = rect(picture, currentColor, fileTXT);
     }
     else if (strcmp(functionName, "fill") == 0){
-      picture = fill(picture, fileTXT, &currentColor);
+      picture = fill(picture, fileTXT, currentColor);
     }
     else if(strcmp(functionName, "curve") == 0){
       picture = curve(picture, fileTXT, currentColor);
