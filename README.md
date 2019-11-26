@@ -1,5 +1,5 @@
 # Projeto de Desenho Gráfico
-Projeto final da disciplina de Introdução às Técnicas de Programação, ministrada pelo professor Gustavo Girão.
+Projeto final da disciplina de Introdução às Técnicas de Programação, ministrada pelo professor Gustavo Girão no Bacharelado de Tecnologia da Informação da UFRN. 2019.2.
 
 ## Sobre
 
