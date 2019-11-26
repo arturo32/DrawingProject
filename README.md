@@ -1,4 +1,4 @@
-# PROJETO DE DESENHO GRÁFICO
+# Projeto de Desenho Gráfico
 Projeto final da disciiplina de Introdução às Técnicas de Programação, ministrada pelo professor Gustavo Girão.
 
 ## Como usar
