@@ -14,11 +14,11 @@ Dentro do arquivo `painting.c` estão contidas as funções relacionadas a "pint
 
 * **Clear** Limpa a imagem, setando todos os pixels para a cor especificada. Esta função recebe 3 valores inteiros que representam uma cor RGB.
 
-Ex: `clear 0 0 0`
+   clear <valor_R> <valor_G> <valor_B>
 
 * **Color** Define o valor RGB da cor atual que será usada.
 
-   color <valor-R> <valor-G> <valor-B>
+   color <valor_R> <valor_G> <valor_B>
 
 * **Fill**
 
