@@ -16,11 +16,13 @@ Dentro do arquivo `painting.c` estão contidas as funções relacionadas a "pint
 
    clear <valor_R> <valor_G> <valor_B>
 
-* **Color** Define o valor RGB da cor atual que será usada.
+* **Color** Rcebe um valor RGB e o define como a cor atual que será usada.
 
    color <valor_R> <valor_G> <valor_B>
 
-* **Fill**
+* **Fill** Preenche um espaço da imagem até encontrar as bordas de alguma figura(ou seja, um pixel com a cor RGB diferente do pixel inicial) ou o fim da imagem. Está função recebe o ponto inical(par xy), onde ser iniciado o preenchimento.
+
+   fill <x<sub>1</sub> y<sub>1</sub>>
 
 * **paintCirclePoints**
 
