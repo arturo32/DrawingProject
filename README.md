@@ -12,11 +12,11 @@ Nosso projeto é um gerador de imagens <a href="http://netpbm.sourceforge.net/do
 ### Painting
 Dentro do arquivo `painting.c` estão contidas as funções relacionadas a "pintura" da imagem, isto é, definir a cor RGB dos pixels da matriz.
 
-* **Clear** Limpa a imagem, setando todos os pixels para a cor especificada. Esta função recebe 3 valores inteiros que representam uma cor RGB, respectivamente.
+* **Clear** Limpa a imagem, setando todos os pixels para a cor especificada. Esta função recebe 3 valores inteiros que representam uma cor RGB.
 
-Ex: `clear <valor-R> <valor-G> <valor-B>`
+Ex: `clear 0 0 0`
 
-* **Color** Define o valor da cor RGB que será usada.
+* **Color**
 
 * **Fill**
 
@@ -24,7 +24,9 @@ Ex: `clear <valor-R> <valor-G> <valor-B>`
 
 ### Shapes
 
-* **Linha** Essa função desenha uma linha a partir de dois pontos específicados pelo usuário utilizando o <a href="https://www.cs.helsinki.fi/group/goa/mallinnus/lines/bresenh.html">Algoritmo de Bresenham </a>
+* **Linha** Essa função desenha uma linha a partir de dois pontos específicados pelo usuário utilizando o <a href="https://www.cs.helsinki.fi/group/goa/mallinnus/lines/bresenh.html">Algoritmo de Bresenham </a>.
+
+   line <x<sub>1</sub> y<sub>1</sub> x<sub>2</sub> y<sub>2</sub>>
 
 * **Círculo**
 
