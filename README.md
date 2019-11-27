@@ -42,6 +42,7 @@ Para compilar o arquivo no Linux, digite no terminal na pasta onde se encontra o
 make
 ./ppm config.txt
 ```
+## Extras
 
 ## O que teríamos feito diferente
 
