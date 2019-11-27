@@ -16,7 +16,9 @@ Dentro do arquivo `painting.c` estão contidas as funções relacionadas a "pint
 
 Ex: `clear 0 0 0`
 
-* **Color**
+* **Color** Define o valor RGB da cor atual que será usada.
+
+   color <valor-R> <valor-G> <valor-B>
 
 * **Fill**
 
@@ -24,9 +26,9 @@ Ex: `clear 0 0 0`
 
 ### Shapes
 
-* **Linha** Essa função desenha uma linha a partir de dois pontos específicados pelo usuário utilizando o <a href="https://www.cs.helsinki.fi/group/goa/mallinnus/lines/bresenh.html">Algoritmo de Bresenham </a>.
+* **Linha** Essa função desenha uma linha a partir de dois pontos específicados (dois pares xy) pelo usuário utilizando o <a href="https://www.cs.helsinki.fi/group/goa/mallinnus/lines/bresenh.html">Algoritmo de Bresenham </a>.
 
-   line <x<sub>1</sub> y<sub>1</sub> x<sub>2</sub> y<sub>2</sub>>
+   line <x<sub>1</sub> y<sub>1</sub>> <x<sub>2</sub> y<sub>2</sub>>
 
 * **Círculo**
 
