@@ -16,7 +16,7 @@ Dentro do arquivo `painting.c` estão contidas as funções relacionadas a "pint
 
 Ex: `clear <valor-R> <valor-G> <valor-B>`
 
-* **Color**
+* **Color** Define o valor da cor RGB que será usada.
 
 * **Fill**
 
