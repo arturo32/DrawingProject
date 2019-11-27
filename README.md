@@ -26,9 +26,7 @@ Ex: `clear 0 0 0`
 
 ### Shapes
 
-* line
-
-* line2 
+* **Linha** Essa função desenha uma linha a partir de dois pontos específicados pelo usuário utilizando o <a href="https://www.cs.helsinki.fi/group/goa/mallinnus/lines/bresenh.html">Algoritmo de Bresenham </a>
 
 * circle
 
