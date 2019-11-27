@@ -50,7 +50,7 @@ make
 
 ## O que teríamos feito diferente
 
-* Recursão da função fill
+* **Função fill** Como dito anteriormente nossa função fill só funciona para áreas pequenas por conta do stackoverflow causado pelas inúmeras chamadas da função recursiva. Gostaríamos de ter implementado uma estrutura de dados como *queue* usando alocação dinâmica em vez da função recursiva, mas esse conteúdo foge do escopo da disciplina e não tivemos tempo suficiente para pesquisar sobre.  
 
 ## Autores
 * <a href="https://github.com/artursantiago">Artur Santiago</a>
