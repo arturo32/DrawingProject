@@ -22,7 +22,7 @@ Dentro do arquivo `painting.c` estão contidas as funções relacionadas a "pint
 
 * **Fill** Preenche um espaço da imagem até encontrar as bordas de alguma figura(ou seja, um pixel com a cor RGB diferente do pixel inicial) ou o fim da imagem. Está função recebe o ponto inical(par xy), onde ser iniciado o preenchimento.
 
-   fill <x<sub>1</sub> y<sub>1</sub>>
+   fill <x_incial> <y_inicial>
 
 * **paintCirclePoints**
 
@@ -30,7 +30,7 @@ Dentro do arquivo `painting.c` estão contidas as funções relacionadas a "pint
 
 * **Linha** Essa função desenha uma linha a partir de dois pontos específicados (dois pares xy) pelo usuário utilizando o <a href="https://www.cs.helsinki.fi/group/goa/mallinnus/lines/bresenh.html">Algoritmo de Bresenham </a>.
 
-   line <x<sub>1</sub> y<sub>1</sub>> <x<sub>2</sub> y<sub>2</sub>>
+   line <x_inicial> <y_inicial> <x_final> <y_final>
 
 * **Círculo**
 
