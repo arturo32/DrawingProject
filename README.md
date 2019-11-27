@@ -4,9 +4,9 @@ Projeto final da disciplina de Introdução às Técnicas de Programação, mini
 ## Sobre
 Nosso projeto é um gerador de imagens <a href="http://netpbm.sourceforge.net/doc/ppm.html">`.ppm`</a> feito em C. É possível desenhar retas, curvas, polígonos, pintar a partir de comandos escritos em um arquivo de texto. 
 ## Tipos
- * Pixel
+ * **Pixel** Tipo usado para criar uma matriz de pixels que representa a imagem ppm e para armazenar a cor atual que será usada em todo o código. Esse tipo é composto por 3 *unsigned char* que representam os valores RGB da cor, repectivamente.
 
- * Image
+ * **Image** Tipo usado para armazenar a imagem composta por uma matriz de Pixels and pela sua altura e largura.
  
 ## Funções
 ### Painting
