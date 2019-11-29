@@ -39,10 +39,12 @@ Dentro do arquivo `painting.c` estão contidas as funções relacionadas a "pint
 * **Retângulo** Desenha um retângulo a partir da posição x,y do seu canto superior esquerdo seguido de sua altura e largura.
 
    `rect <ponto_x_superior_esquerdo> <ponto_y_superior_esquerdo> <altura> <largura>`
+   
+* **Polígono** Desenha um polígono delimitado por uma lista de ponto. O primeiro parâmetro é a quantidade de vértices n seguido pelos n vértices(par x,y).
+
+   `polygon <qtd_vertices_n> <x_vertice_1> <y_vertice_1> <x_vertice_2> <y_vertice_2>... <x_vertice_n> <y_vertice_n>`
 
 ### Funçes de Entrada e Saída
-
-
 
 ## Como Compilar
 Para compilar o arquivo no Linux, digite no terminal na pasta onde se encontra os arquivos do projeto:
