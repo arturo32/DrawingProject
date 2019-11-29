@@ -90,4 +90,9 @@ OBS: O arquivo *config.txt* deve conter no mínimo 3 comandos : *image*, *clear*
 * <a href="https://github.com/artursantiago">Artur Santiago</a>
 * <a href="https://github.com/arturo32">Arturo Fonseca</a>
 
-## Contribuiçes de cada autor
+### Contribuiçes de cada um
+
+* **Artur Santiago**
+1.
+2.
+* **Arturo Fonseca**
