@@ -10,44 +10,59 @@ Nosso projeto é um gerador de imagens <a href="http://netpbm.sourceforge.net/do
 
  * **Image** Tipo usado para armazenar a imagem composta por uma matriz de Pixels and pela sua altura e largura.
  
-## Funções
-### Painting
+## Funcionalidades
+### Funçes de Pintura
 Dentro do arquivo `painting.c` estão contidas as funções relacionadas a "pintura" da imagem, isto é, definir a cor RGB dos pixels da matriz.
 
 * **Clear** Limpa a imagem, setando todos os pixels para a cor especificada. Esta função recebe 3 valores inteiros que representam uma cor RGB.
 
-   clear <valor_R> <valor_G> <valor_B>
+   `clear <valor_R> <valor_G> <valor_B>`
 
 * **Color** Rcebe um valor RGB e o define como a cor atual que será usada.
 
-   color <valor_R> <valor_G> <valor_B>
+   `color <valor_R> <valor_G> <valor_B>`
 
 * **Fill** Preenche um espaço da imagem até encontrar as bordas de alguma figura(ou seja, um pixel com a cor RGB diferente do pixel inicial) ou o fim da imagem. Está função recebe o ponto inical(par xy), onde ser iniciado o preenchimento.
 
-   fill <x_incial> <y_inicial>
+   `fill <x_incial> <y_inicial>`
 
-* **paintCirclePoints**
-
-### Shapes
+### Funções de Desenho
 
 * **Linha** Essa função desenha uma linha a partir de dois pontos específicados (dois pares xy) pelo usuário utilizando o <a href="https://www.cs.helsinki.fi/group/goa/mallinnus/lines/bresenh.html">Algoritmo de Bresenham </a>.
 
-   line <x_inicial> <y_inicial> <x_final> <y_final>
+   `line <x_inicial> <y_inicial> <x_final> <y_final>`
 
-* **Círculo**
+* **Círculo** Desenha um círculo a partir da posição do seu centro(par x,y) e do seu raio.
+   `circle <x_central> <y_central> <raio>`
 
 * **Retângulo**
 
-### Input and Output
+### Funçes de Entrada e Saída
 
 
 
-## Como usar //escrever melhor
+## Como Compilar
 Para compilar o arquivo no Linux, digite no terminal na pasta onde se encontra os arquivos do projeto:
 ```
 make
 ./ppm config.txt
 ```
+O *ppm* é o nome do arquivo executável que o make gera e o *config.txt* é o arquivo que possui os comandos para criação da imagem ppm.
+
+Exemplo do arquivo config.txt:
+```
+image 600 400
+clear 0 0 0
+color 100 170 200
+line 0 400 600 200
+polygon 3 0 400 300 200 600 400
+circle 200 100 50
+color 180 30 50
+fill 300 300
+save test.ppm
+```
+OBS: O arquivo config.txt deve conter no mínimo 3 comandos : *image*, *clear* e *save*;
+
 ## Extras
 
 ## O que teríamos feito diferente
@@ -57,3 +72,5 @@ make
 ## Autores
 * <a href="https://github.com/artursantiago">Artur Santiago</a>
 * <a href="https://github.com/arturo32">Arturo Fonseca</a>
+
+## Contribuiçes de cada autor
