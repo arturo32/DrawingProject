@@ -27,6 +27,7 @@ Dentro do arquivo `painting.c` estão contidas as funções relacionadas a "pint
    `fill <x_incial> <y_inicial>`
 
 ### Funções de Desenho
+As funções para realizar desenhos na imagem estão contidas no arquivo `shapes.c`.
 
 * **Linha** Essa função desenha uma linha a partir de dois pontos específicados (dois pares xy) pelo usuário utilizando o <a href="https://www.cs.helsinki.fi/group/goa/mallinnus/lines/bresenh.html">Algoritmo de Bresenham </a>.
 
@@ -45,6 +46,7 @@ Dentro do arquivo `painting.c` estão contidas as funções relacionadas a "pint
    `polygon <qtd_pontos_n> <x_ponto_1> <y_ponto_1> <x_ponto_2> <y_ponto_2>... <x_ponto_n> <y_ponto_n>`
 
 ### Funçes de Entrada e Saída
+As funções que não se relacionam com a manipulação da imagem de fato, mas se relacionam com a leitura e criação de arquivos, estão contidas no arquivo `IO.c`.
 
 * **Criar Imagem** Cria uma nova "imagem", com a largura e altura especificadas.
 
