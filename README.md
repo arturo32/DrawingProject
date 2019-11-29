@@ -40,9 +40,9 @@ Dentro do arquivo `painting.c` estão contidas as funções relacionadas a "pint
 
    `rect <ponto_x_superior_esquerdo> <ponto_y_superior_esquerdo> <altura> <largura>`
    
-* **Polígono** Desenha um polígono delimitado por uma lista de ponto. O primeiro parâmetro é a quantidade de vértices n seguido pelos n vértices(par x,y).
+* **Polígono** Desenha um polígono delimitado por uma lista de ponto. O primeiro parâmetro é a quantidade de pontos n seguido pelos n pontos(par x,y).
 
-   `polygon <qtd_vertices_n> <x_vertice_1> <y_vertice_1> <x_vertice_2> <y_vertice_2>... <x_vertice_n> <y_vertice_n>`
+   `polygon <qtd_pontos_n> <x_ponto_1> <y_ponto_1> <x_ponto_2> <y_ponto_2>... <x_ponto_n> <y_ponto_n>`
 
 ### Funçes de Entrada e Saída
 
