@@ -93,6 +93,5 @@ OBS: O arquivo *config.txt* deve conter no mínimo 3 comandos : *image*, *clear*
 ### Contribuiçes de cada um
 
 * **Artur Santiago**
-1.
-2.
+
 * **Arturo Fonseca**
