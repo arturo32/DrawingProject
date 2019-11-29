@@ -46,6 +46,14 @@ Dentro do arquivo `painting.c` estão contidas as funções relacionadas a "pint
 
 ### Funçes de Entrada e Saída
 
+* **Criar Imagem** Cria uma nova "imagem", com a largura e altura especificadas.
+
+   `image <altura> <largura>`
+   
+* **Salvar Imagem** Salva a imagem criada em um determinado arquivo usando o formato ppm. Recebe o nome da imagem seguido pela extensão *.ppm*.
+
+   `save <nome_da_imagem.ppm>`
+
 ## Como Compilar
 Para compilar o arquivo no Linux, digite no terminal na pasta onde se encontra os arquivos do projeto:
 ```
@@ -66,7 +74,7 @@ color 180 30 50
 fill 300 300
 save test.ppm
 ```
-OBS: O arquivo config.txt deve conter no mínimo 3 comandos : *image*, *clear* e *save*;
+OBS: O arquivo *config.txt* deve conter no mínimo 3 comandos : *image*, *clear* e *save*;
 
 ## Extras
 
