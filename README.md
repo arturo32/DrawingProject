@@ -33,9 +33,12 @@ Dentro do arquivo `painting.c` estão contidas as funções relacionadas a "pint
    `line <x_inicial> <y_inicial> <x_final> <y_final>`
 
 * **Círculo** Desenha um círculo a partir da posição do seu centro(par x,y) e do seu raio.
+
    `circle <x_central> <y_central> <raio>`
 
-* **Retângulo**
+* **Retângulo** Desenha um retângulo a partir da posição x,y do seu canto superior esquerdo seguido de sua altura e largura.
+
+   `rect <ponto_x_superior_esquerdo> <ponto_y_superior_esquerdo> <altura> <largura>`
 
 ### Funçes de Entrada e Saída
 
