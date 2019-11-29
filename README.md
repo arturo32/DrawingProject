@@ -78,6 +78,10 @@ OBS: O arquivo *config.txt* deve conter no mínimo 3 comandos : *image*, *clear*
 
 ## Extras
 
+* **Curvas de Bezier**
+
+* **Polígonos Regulares**
+
 ## O que teríamos feito diferente
 
 * **Função fill** Como dito anteriormente nossa função fill só funciona para áreas pequenas por conta do stackoverflow causado pelas inúmeras chamadas da função recursiva. Gostaríamos de ter implementado uma estrutura de dados como *queue* usando alocação dinâmica em vez da função recursiva, mas esse conteúdo foge do escopo da disciplina e não tivemos tempo suficiente para pesquisar sobre.  
