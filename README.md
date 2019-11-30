@@ -11,7 +11,7 @@ Nosso projeto é um gerador de imagens <a href="http://netpbm.sourceforge.net/do
  * **Image** Tipo usado para armazenar a imagem composta por uma matriz de Pixels and pela sua altura e largura.
  
 ## Funcionalidades
-### Funçes de Pintura
+### Funções de Pintura
 Dentro do arquivo `painting.c` estão contidas as funções relacionadas a "pintura" da imagem, isto é, definir a cor RGB dos pixels da matriz.
 
 * **Clear** Limpa a imagem, setando todos os pixels para a cor especificada. Esta função recebe 3 valores inteiros que representam uma cor RGB.
@@ -95,5 +95,14 @@ OBS: O arquivo *config.txt* deve conter no mínimo 3 comandos : *image*, *clear*
 ### Contribuiçes de cada um
 
 * **Artur Santiago**
+  * Modularização
+  * Polígonos
+  * Círculos
+  * Retângulos
+  * Documentação
 
 * **Arturo Fonseca**
+  * Polígonos Regulares
+  * Curvas de Bezier
+  * Linhas
+  * Função Fill
