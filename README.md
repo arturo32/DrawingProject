@@ -39,7 +39,7 @@ As funções para realizar desenhos na imagem estão contidas no arquivo `shapes
 
 * **Retângulo** Desenha um retângulo a partir da posição x,y do seu canto superior esquerdo seguido de sua altura e largura.
 
-   `rect <ponto_x_superior_esquerdo> <ponto_y_superior_esquerdo> <altura> <largura>`
+   `rect <x_ponto_superior_esquerdo> <y_ponto_superior_esquerdo> <altura> <largura>`
    
 * **Polígono** Desenha um polígono delimitado por uma lista de ponto. O primeiro parâmetro é a quantidade de pontos n seguido pelos n pontos(par x,y).
 
