@@ -175,7 +175,6 @@ Image regPolygon(Image picture, FILE *fileTXT, Pixel currentColor){
 
 Image curve(Image picture, FILE *fileTXT, Pixel currentColor){
 
-  //r is the number of curves that will be coming from the point (x, y)
   int x, y, i, x2, y2, x3, y3;
   fscanf(fileTXT, " %d %d %d %d %d %d\n", &x, &y, &x2, &y2, &x3, &y3);
   int finalx, finaly;
