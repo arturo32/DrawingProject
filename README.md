@@ -91,7 +91,7 @@ OBS: O arquivo *config.txt* deve conter no mínimo 3 comandos : *image*, *clear*
   
    `randcurve <numero_de_curvas> <x_inicial> <y_inicial>`
 
-* **Polígonos Regulares** Desenha um polígono regular a partir do seu número de vértices, raio, ângulo de rotação e pelo seu ponto central. O ângulo de rotação é convertido para radianos
+* **Polígonos Regulares** Desenha um polígono regular a partir do seu número de lados, raio(de um círculo circunscrito), ângulo de rotação e pelo seu ponto central. O ângulo de rotação é convertido para radianos e a rotação é implementada no sentido anti-horário. Os 360º do círculo é divido igualmente para o número de lados e utiliza o seno e cosseno para achar as coordenadas dos vértices da figura e depois é utilizado o algorítmo de linhas para traçar as retas do polígono.
 
    `rpolygon <numero_de_lados> <raio> <rotacao> <x_central> <y_central>`
 
