@@ -14,11 +14,11 @@ Nosso projeto é um gerador de imagens <a href="http://netpbm.sourceforge.net/do
 ### Funções de Pintura
 Dentro do arquivo `painting.c` estão contidas as funções relacionadas a "pintura" da imagem, isto é, definir a cor RGB dos pixels da matriz.
 
-* **Clear** Limpa a imagem, setando todos os pixels para a cor especificada. Esta função recebe 3 valores inteiros que representam uma cor RGB.
+* **Linhas** Limpa a imagem, setando todos os pixels para a cor especificada. Esta função recebe 3 valores inteiros que representam uma cor RGB.
 
    `clear <valor_R> <valor_G> <valor_B>`
 
-* **Color** Rcebe um valor RGB e o define como a cor atual que será usada.
+* **Definir cor** Rcebe um valor RGB e o define como a cor atual que será usada.
 
    `color <valor_R> <valor_G> <valor_B>`
 
