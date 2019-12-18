@@ -12,36 +12,36 @@ Nosso projeto é um gerador de imagens <a href="http://netpbm.sourceforge.net/do
  
 ## Funcionalidades
 ### Funções de Pintura
-Dentro do arquivo `painting.c` estão contidas as funções relacionadas a "pintura" da imagem, isto é, definir a cor RGB dos pixels da matriz.
+Dentro do arquivo `painting.c` estão contidas as funções relacionadas a "pintura" da imagem, isto é, define a cor RGB dos pixels da matriz.
 
-* **Linhas** Limpa a imagem, setando todos os pixels para a cor especificada. Esta função recebe 3 valores inteiros que representam uma cor RGB.
+* **Limpar** Limpa a imagem, setando todos os pixels para a cor especificada. Esta função recebe 3 valores inteiros que representam uma cor RGB.
 
    `clear <valor_R> <valor_G> <valor_B>`
 
-* **Definir cor** Rcebe um valor RGB e o define como a cor atual que será usada.
+* **Definir cor** Recebe um valor RGB e o define como a cor atual que será usada.
 
    `color <valor_R> <valor_G> <valor_B>`
 
-* **Fill** Preenche um espaço da imagem até encontrar as bordas de alguma figura(ou seja, um pixel com a cor RGB diferente do pixel inicial) ou o fim da imagem. Está função recebe o ponto inical(par xy), onde ser iniciado o preenchimento.
+* **Preencher** Preenche um espaço da imagem até encontrar as bordas de alguma figura(ou seja, um pixel com a cor RGB diferente do pixel inicial) ou o fim da imagem. Está função recebe o ponto inicial (par xy), onde vai ser iniciado o preenchimento.
 
    `fill <x_incial> <y_inicial>`
 
 ### Funções de Desenho
 As funções para realizar desenhos na imagem estão contidas no arquivo `shapes.c`.
 
-* **Linha** Essa função desenha uma linha a partir de dois pontos específicados (dois pares xy) pelo usuário utilizando o <a href="https://www.cs.helsinki.fi/group/goa/mallinnus/lines/bresenh.html">Algoritmo de Bresenham </a>.
+* **Linha** Essa função desenha uma linha a partir de dois pontos específicados (dois pares xy) pelo usuário utilizando o <a href="https://www.cs.helsinki.fi/group/goa/mallinnus/lines/bresenh.html">Algoritmo de Bresenham</a>.
 
    `line <x_inicial> <y_inicial> <x_final> <y_final>`
 
-* **Círculo** Desenha um círculo a partir da posição do seu centro(par x,y) e do seu raio.
+* **Círculo** Desenha um círculo a partir da posição do seu centro (par xy) e do seu raio.
 
    `circle <x_central> <y_central> <raio>`
 
-* **Retângulo** Desenha um retângulo a partir da posição x,y do seu canto superior esquerdo seguido de sua altura e largura.
+* **Retângulo** Desenha um retângulo a partir da posição (xy) do seu canto superior esquerdo seguido de sua altura e largura.
 
    `rect <x_ponto_superior_esquerdo> <y_ponto_superior_esquerdo> <altura> <largura>`
    
-* **Polígono** Desenha um polígono delimitado por uma lista de ponto. O primeiro parâmetro é a quantidade de pontos n seguido pelos n pontos(par x,y).
+* **Polígono** Desenha um polígono delimitado por uma lista de pontos. O primeiro parâmetro é a quantidade de pontos n seguido pelos n pontos (par xy).
 
    `polygon <qtd_pontos_n> <x_ponto_1> <y_ponto_1> <x_ponto_2> <y_ponto_2>... <x_ponto_n> <y_ponto_n>`
 
