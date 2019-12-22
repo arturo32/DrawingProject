@@ -45,7 +45,7 @@ As funções para realizar desenhos na imagem estão contidas no arquivo `shapes
 
    `polygon <qtd_pontos_n> <x_ponto_1> <y_ponto_1> <x_ponto_2> <y_ponto_2>... <x_ponto_n> <y_ponto_n>`
 
-### Funçes de Entrada e Saída
+### Funções de Entrada e Saída
 As funções que não se relacionam com a manipulação da imagem de fato, mas se relacionam com a leitura e criação de arquivos, estão contidas no arquivo `IO.c`.
 
 * **Criar Imagem** Cria uma nova "imagem", com a largura e altura especificadas.
