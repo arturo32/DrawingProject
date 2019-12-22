@@ -80,8 +80,8 @@ OBS: O arquivo *config.txt* deve conter no mínimo 3 comandos : *image*, *clear*
 
 ## Extras
 
-* **Curvas de Bezier** O método para desenhar curvas de Bezier recebe 3 pontos (pares x,y) como parâmetros: o ponto inicial, o ponto de inflexão e o ponto final. 
-   O método usado na implementação das curvas de Bezier se baseia fundamentalmente na <a href="https://www.youtube.com/watch?v=mAi2-LTC2CA">interpolação linear</a>. Vale ressaltar todas as curvas feitas no projeto são do tipo quadrática.
+* **Curvas de Bézier** O método para desenhar curvas de Bézier recebe 3 pontos (pares x,y) como parâmetros: o ponto inicial, o ponto de inflexão e o ponto final. 
+   O método usado na implementação das curvas de Bézier se baseia fundamentalmente na <a href="https://www.youtube.com/watch?v=mAi2-LTC2CA">interpolação linear</a>. Vale ressaltar todas as curvas feitas no projeto são do tipo quadrática.
    
    O desenho das curvas pode ser feito de duas formas. A primeira em que o usuário especifica os 3 pontos de controle para a construção da curva, e pode ser chamado da seguinte forma:
   
@@ -114,6 +114,6 @@ OBS: O arquivo *config.txt* deve conter no mínimo 3 comandos : *image*, *clear*
 
 * **Arturo Fonseca**
   * Polígonos Regulares
-  * Curvas de Bezier
+  * Curvas de Bézier
   * Linhas
   * Função Fill
