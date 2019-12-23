@@ -1,7 +1,9 @@
+> *Este arquivo README também está disponível em português brasileiro. Clique em `README(pt-br).md` nos arquivos acima para lê-lo.*
+
+
+
 # Drawing Project
 Final project of the course Introduction to Programming Techniques, taught by professor Gustavo Girão in the Bachelor of IT at the University of Rio Grande do Norte. 2019.2
-
-> *Este arquivo README também está disponível em português brasileiro. Clique em `README(pt-br).md` nos arquivos acima para lê-lo.*
 
 ## About
 Our project is a <a href="http://netpbm.sourceforge.net/doc/ppm.html">PPM</a> image generator in C. It is possible to draw lines, curves, polygons, paint from instructions written in a txt file.
