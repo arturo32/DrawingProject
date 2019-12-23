@@ -6,7 +6,7 @@ Nosso projeto é um gerador de imagens <a href="http://netpbm.sourceforge.net/do
 É importante notar que nosso programa funciona como uma grande matriz, isto é, o ponto (0, 0) está no canto superior esquerdo da imagem, quanto maior a primeira coordena, mais a direita ele estará e quanto maior a segunda coordenada mais para baixo ele estará.
 
 ## Tipos
- * **Pixel** Tipo usado para criar uma matriz de pixels que representa a imagem ppm e para armazenar a cor atual que será usada em todo o código. Esse tipo é composto por 3 *unsigned char* que representam os valores RGB da cor, repectivamente.
+ * **Pixel** Tipo usado para criar uma matriz de pixels que representa a imagem ppm e para armazenar a cor atual que será usada em todo o código. Esse tipo é composto por 3 *unsigned char* que representam os valores RGB da cor, respectivamente.
 
  * **Image** Tipo usado para armazenar a imagem composta por uma matriz de Pixels and pela sua altura e largura.
  
@@ -22,14 +22,14 @@ Dentro do arquivo `painting.c` estão contidas as funções relacionadas a "pint
 
    `color <valor_R> <valor_G> <valor_B>`
 
-* **Preencher** Preenche um espaço da imagem até encontrar as bordas de alguma figura(ou seja, um pixel com a cor RGB diferente do pixel inicial) ou o fim da imagem. Está função recebe o ponto inicial (par xy), onde vai ser iniciado o preenchimento.
+* **Preencher** Preenche um espaço da imagem até encontrar as bordas de alguma figura(ou seja, um pixel com a cor RGB diferente do pixel inicial) ou o fim da imagem. Está função recebe o ponto inicial (par xy), onde vai ser iniciado o preenchimento. Funciona com recursão. <b>CUIDADO: Não use essa função em áreas muito grandes (maiores que 500 por 500 pixels), pode causar stack overflow.</b>
 
    `fill <x_incial> <y_inicial>`
 
 ### Funções de Desenho
 As funções para realizar desenhos na imagem estão contidas no arquivo `shapes.c`.
 
-* **Linha** Essa função desenha uma linha a partir de dois pontos específicados (dois pares xy) pelo usuário utilizando o <a href="https://www.cs.helsinki.fi/group/goa/mallinnus/lines/bresenh.html">Algoritmo de Bresenham</a>.
+* **Linha** Essa função desenha uma linha a partir de dois pontos especificados (dois pares xy) pelo usuário utilizando o <a href="https://www.cs.helsinki.fi/group/goa/mallinnus/lines/bresenh.html">Algoritmo de Bresenham</a>.
 
    `line <x_inicial> <y_inicial> <x_final> <y_final>`
 
@@ -91,19 +91,19 @@ OBS: O arquivo *config.txt* deve conter no mínimo 3 comandos : *image*, *clear*
   
    `randcurve <numero_de_curvas> <x_inicial> <y_inicial>`
 
-* **Polígonos Regulares** Desenha um polígono regular a partir do seu número de lados, raio(de um círculo circunscrito), ângulo de rotação e pelo seu ponto central. O ângulo de rotação é convertido para radianos e a rotação é implementada no sentido anti-horário. Os 360º do círculo é divido igualmente para o número de lados e utiliza o seno e cosseno para achar as coordenadas dos vértices da figura e depois é utilizado o algorítmo de linhas para traçar as retas do polígono.
+* **Polígonos Regulares** Desenha um polígono regular a partir do seu número de lados, raio(de um círculo circunscrito), ângulo de rotação e pelo seu ponto central. O ângulo de rotação é convertido para radianos e a rotação é implementada no sentido anti-horário. Os 360º do círculo é divido igualmente para o número de lados e utiliza o seno e cosseno para achar as coordenadas dos vértices da figura e depois é utilizado o algorítimo de linhas para traçar as retas do polígono.
 
    `rpolygon <numero_de_lados> <raio> <rotacao> <x_central> <y_central>`
 
 ## O que teríamos feito diferente
 
-* **Função fill** Como dito anteriormente nossa função fill só funciona para áreas pequenas por conta do stackoverflow causado pelas inúmeras chamadas da função recursiva. Gostaríamos de ter implementado uma estrutura de dados como *queue* usando alocação dinâmica em vez da função recursiva, mas esse conteúdo foge do escopo da disciplina e não tivemos tempo suficiente para pesquisar sobre.  
+* **Função fill** Como dito anteriormente nossa função fill só funciona para áreas pequenas por conta do stack overflow causado pelas inúmeras chamadas da função recursiva. Gostaríamos de ter implementado uma estrutura de dados como *queue* usando alocação dinâmica em vez da função recursiva, mas esse conteúdo foge do escopo da disciplina e não tivemos tempo suficiente para pesquisar sobre.  
 
 ## Autores
 * <a href="https://github.com/artursantiago">Artur Santiago</a>
 * <a href="https://github.com/arturo32">Arturo Fonseca</a>
 
-### Contribuiçes de cada um
+### Contribuições de cada um
 
 * **Artur Santiago**
   * Modularização
