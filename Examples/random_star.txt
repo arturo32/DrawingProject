@@ -1,0 +1,9 @@
+image 2000 2000
+clear 0 0 0
+color 255 255 255
+randcurve 500 400 700
+randcurve 500 1600 700
+randcurve 500 1000 400
+randcurve 500 650 1400
+randcurve 500 1350 1400
+save random_star.ppm
