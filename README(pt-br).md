@@ -1,6 +1,11 @@
 # Projeto de Desenho Gráfico
 Projeto final da disciplina de Introdução às Técnicas de Programação, ministrada pelo professor Gustavo Girão no Bacharelado de Tecnologia da Informação da UFRN. 2019.2.
 
+<p align="center">
+ <img src="https://github.com/arturo32/DrawingProject/blob/216c31c9ac130f11ee00acf756ddf9eda12e7050/Examples/Hexagons%20and%20curves.png"
+   alt="A imagem é um quadrado, em sua maior parte preto, com 4 hexágonos finos brancos, um dentro do outro vindo do centro. Um conjunto de curvas surgem do canto superior esquerdo e do canto inferior direito."/>
+</p>
+
 ## Sobre
 Nosso projeto é um gerador de imagens <a href="http://netpbm.sourceforge.net/doc/ppm.html">`.ppm`</a> feito em C. É possível desenhar retas, curvas, polígonos, pintar a partir de comandos escritos em um arquivo de texto.
 É importante notar que nosso programa funciona como uma grande matriz, isto é, o ponto (0, 0) está no canto superior esquerdo da imagem, quanto maior a primeira coordena, mais a direita ele estará e quanto maior a segunda coordenada mais para baixo ele estará.
