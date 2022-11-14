@@ -5,6 +5,11 @@
 # Drawing Project
 Final project of the course Introduction to Programming Techniques, taught by professor Gustavo Girão in the Bachelor of IT at the University of Rio Grande do Norte. 2019.2
 
+<p align="center>
+ <img src="https://github.com/arturo32/DrawingProject/blob/216c31c9ac130f11ee00acf756ddf9eda12e7050/Examples/Hexagons%20and%20curves.png"
+   alt="The image is a square, mostly black, with 4 thin white hexagons, one inside another from the center. A set of thin random white curves come from the up-left and bottom-right conners"/>
+<p/>
+
 ## About
 Our project is a <a href="http://netpbm.sourceforge.net/doc/ppm.html">PPM</a> image generator in C. It is possible to draw lines, curves, polygons, paint from instructions written in a txt file.
 It is important to notice that our program works like a big matrix, i.e., the point (0.0) is in the left top corner; the bigger the first coordinate value, more to the right it will be and the bigger the second coordinate value, more to the bottom it will be.
